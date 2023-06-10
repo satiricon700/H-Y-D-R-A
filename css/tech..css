@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-family: "Poppins", serif !important;
+}
+
+h1,
+h3,
+h4,
+h5 {
+  font-weight: 600;
+}
+
+.first-section .blog-meta h4 {
+  font-weight: 600;
+  padding: 0.8rem 0 0.5rem !important;
+}
+
+.blog-meta.big-meta h4 {
+  font-size: 24px;
+}
+
+.first-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.blog-grid-system .color-orange a {
+  color: #ffffff !important;
+  font-size: 13px;
+  padding: 0 0.7rem;
+  border-radius: 3px;
+}
+
+.blog-top {
+  margin-bottom: 2rem;
+}
+
+.blog-top h4 {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+

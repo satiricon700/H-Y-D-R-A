@@ -1,0 +1,28 @@
+.image-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.image-left {
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+.image-left img {
+  max-width: 100%;
+  height: auto;
+  size: 30px;
+}
+
+.image-left,
+.image-left img {
+  float: left;
+  size: 20px;
+}
+
+.image-left:after {
+  content: "";
+  display: table;
+  clear: both;
+}
