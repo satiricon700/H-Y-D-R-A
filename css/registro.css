@@ -1,0 +1,63 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background-image: url('../images/Mr.jpg');
+  font-family: Arial, sans-serif;
+    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  width: 400px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+
+.registro {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.registro input[type="text"],
+.registro input[type="email"],
+.registro input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.registro input[type="submit"] {
+  background-color: #2091f9;
+  color: #f0f0f0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.registro input[type="submit"]:hover {
+  background: #03e9f4;
+  color: #fff;
+ box-shadow: 0 0 5px #03e9f4,
+             0 0 25px #03e9f4,
+             0 0 50px #03e9f4,
+             0 0 100px #03e9f4;
+             
+}
+
