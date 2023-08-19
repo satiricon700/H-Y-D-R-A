@@ -34,9 +34,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%),
-    url("../images/computer.jpg");
+    url("../images/wallpaper/computer.jpg");
   background-size: cover;
   clip-path: fill-box(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
   z-index: -1;
@@ -44,24 +44,25 @@ body {
 
 /* Nav */
 
-.nav {
-  --padding-container: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
+  .nav {
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
-.log {
-  width: 100px;
-  height: 68px;
-  margin-top: 25px;
-}
+  .log {
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 50px;  
+  }
 
-.nav__title {
-  font-weight: 600;
-  height: 40px;
-  font-size: 24px;
-}
+  .nav__title {
+    font-weight: 600;
+    height: 40px;
+    font-size: 24px;
+  }
 
 .nav__link {
   margin-left: auto;
@@ -230,9 +231,10 @@ body {
 .knowledge__img {
   width: 100%;
   display: block;
+  border-radius: 10px;
 }
 
-/* price */
+
 
 .price {
   text-align: center;
@@ -245,6 +247,7 @@ body {
   gap: 2.5em;
   justify-content: space-evenly;
   align-items: center;
+  
 }
 
 .price__element {
@@ -269,12 +272,14 @@ body {
   --bg-cta: #fff;
   --color-cta: white;
   --color-items: #fff;
+
 }
 
 .price__name {
   color: var(--color-plan);
   margin-bottom: 15px;
-  font-weight: 300;
+  font-size: 300;
+  font-weight:700;
 }
 
 .price__price {
@@ -290,6 +295,8 @@ body {
   font-size: 1.2rem;
   margin-bottom: 50px;
   color: var(--color-items);
+  height: 200px;
+
 }
 
 .price__cta {
