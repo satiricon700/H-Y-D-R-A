@@ -2,240 +2,253 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../images/iconos/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <title>noticias</title>
-    <style>
-        body {
-            font-family: "Poppins", sans-serif;
-            text-align: center;
-        }
-
-        #noticias {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .noticia {
-            max-width: 400px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            text-align: left;
-        }
-
-        .noticia img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            transition: transform 0.3s ease;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../images/iconos/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <title>noticias</title>
+  <style>
     
-        .noticia img:hover {
-            transform: scale(1.1);
-        }
-
-        .noticia h1 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .noticia h2 {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .noticia h3 {
-            font-size: 14px;
-            color: #555;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-
-        .noticia h3 a {
-            text-decoration: none;
-            color: #555;
-        }
-
-        #mostrar-mas {
-            margin-top: 20px;
-            font-size: 16px;
-            background-color: #eee;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    
+    #noticias {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    
+    }
+    
+    .noticia {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .noticia:hover {
+      transform: translateY(-5px);
+    }
+    
+    .noticia img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .noticia h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .noticia h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    
+    .noticia h3 {
+      font-size: 16px;
+      color: #777;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    
+    .noticia h3 a {
+      text-decoration: none;
+      color: #333;
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    
+    #mostrar-mas {
+      margin-top: 20px;
+      font-size: 18px;
+      background-color: #f0f0f0;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    #mostrar-mas:hover {
+      background-color: #e0e0e0;
+    }
+    
+  </style>
 </head>
 
-
 <body>
-    <header class="hero">
-        <nav class="nav container">
-          <div class="nav__logo">
-            <div class="log">
-              <img src="../images/iconos/1572962147Hydra Emblem.png" height="86px" width="77px" />
-            </div>
-            <h2 class="nav__title">HYDRA</h2>
-          </div>
-    
-          <ul class="nav__link nav__link--menu">
-            <li class="nav__items">
-              <a href="index.html" class="nav__links">inicio</a>
-            </li>
-            <li class="nav__items">
-              <a href="Curso.html" class="nav__links">curso</a>
-            </li>
-            <li class="nav__items">
-              <a href="Contacto.html" class="nav__links">contacto</a>
-            </li>
-            <li class="nav__items">
-              <a href="noticias.html" class="nav__links">blog</a>
-            </li>
-            <i class="nav__close">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="currentColor" class="bi bi-x-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                <path
-                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-              </svg>
-          </ul>
-          </i>
-    
-          <div class="nav__menu">
-            <i class="bi bi-justify">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="white" class="bi bi-list"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-              </svg>
-            </i>
-          </div>
-        </nav>
-    
-        <section class="hero__container container">
-          <h3 class="hero__title">
-         SECCION INFORMATIVA 
-          </h3>
-          <p class="hero__paragraph">
-            ¡Corta una cabeza, y dos más tomarán su lugar!
-          </p>
-         
-        </section>
-      </header>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    <div id="noticias"></div>
-    <button id="mostrar-mas">Mostrar más noticias</button>
+  <header class="hero">
+    <nav class="nav container">
+      <div class="nav__logo">
+        <div class="log">
+          <img src="../images/logos/Logo Hydra-02.png" height="100px" width="150px" />
+        </div>
+      </div>
+      <ul class="nav__link nav__link--menu">
+        <li class="nav__items">
+          <a href="index.html" class="nav__links">inicio</a>
+        </li>
+        <li class="nav__items">
+          <a href="registro.html" class="nav__links">curso</a>
+        </li>
+        <li class="nav__items">
+          <a href="Contacto.html" class="nav__links">contacto</a>
+        </li>
+        <li class="nav__items">
+          <a href="noticias.html" class="nav__links">blog</a>
+        </li>
+        <i class="nav__close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="white" class="bi bi-x-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+          </svg>
+      </ul>
+      </i>
 
-    <script>
-      let key = '3f4382e5f9864a36a8b79d117146d2a7';
-      let pais = 'us';
-      let url = `https://newsapi.org/v2/top-headlines?country=${pais}&apiKey=${key}`;
-      let mostrar_noticias = document.getElementById('noticias');
-      let noticias = [];
-      let offset = 0;
-  
-      function mostrarNoticias() {
-        mostrar_noticias.innerHTML = '';
-        noticias.map(function (numero) {
-          let div = document.createElement('div');
-          div.classList.add('noticia');
-          div.innerHTML = `
-            <a href="${numero.url}" target="_blank">
-              <img src=${numero.urlToImage}></br>
-            </a>
-            <h1>${numero.title}</h1>
-            <h2>${numero.description}</h2>
-            <h3><a href="${numero.url}" target="_blank">Leer más</a></h3>`;
-          mostrar_noticias.appendChild(div);
-        });
-      }
-  
-      // Función para cargar más noticias
-      function cargarMasNoticias() {
-        fetch(`${url}&pageSize=10&page=${offset}`).then((resp) => resp.json()).then(dato => {
-          console.log(dato);
-          const nuevasNoticias = dato.articles.filter(noticia => !noticias.some(existing => existing.title === noticia.title));
-          noticias = noticias.concat(nuevasNoticias);
-          mostrarNoticias();
-        });
-        offset++;
-      }
-  
-      // Evento de carga más noticias
-      document.getElementById('mostrar-mas').addEventListener('click', cargarMasNoticias);
-  
-      cargarMasNoticias();
-    </script>
-    <br>
-    <br>
-    <br>
+      <div class="nav__menu">
+        <i class="bi bi-justify">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="white" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          </svg>
+        </i>
+      </div>
+    </nav>
+
+    <section class="hero__container container">
+      <h3 class="hero__title">
+        SECCION INFORMATIVA
+      </h3>
+      <p class="hero__paragraph">
+        ¡Corta una cabeza, y dos más tomarán su lugar!
+      </p>
+
+    </section>
+  </header>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="noticias"></div>
+  <button id="mostrar-mas">Mostrar más noticias</button>
+
+  <script>
+    let key = '3f4382e5f9864a36a8b79d117146d2a7';
+    let pais = 'us';
+    let url = `https://newsapi.org/v2/top-headlines?country=${pais}&apiKey=${key}`;
+    let mostrar_noticias = document.getElementById('noticias');
+let noticias = [];
+let offset = 1; // Iniciar desde la página 1
+
+// Función para mostrar las noticias en el DOM
+function mostrarNoticias() {
+  mostrar_noticias.innerHTML = '';
+  noticias.map(function (noticia) {
+    let div = document.createElement('div');
+    div.classList.add('noticia');
+    div.innerHTML = `
+      <a href="${noticia.url}" target="_blank">
+        <img src="${noticia.urlToImage}" alt="Imagen de la noticia"></br>
+      </a>
+      <h1>${noticia.title}</h1>
+      <h2>${noticia.description}</h2>
+      <h3><a href="${noticia.url}" target="_blank">Leer más</a></h3>`;
+    mostrar_noticias.appendChild(div);
+  });
+}
+
+// Función para cargar más noticias
+function cargarMasNoticias() {
+  fetch(`${url}&pageSize=10&page=${offset}`)
+    .then((resp) => resp.json())
+    .then((dato) => {
+      const nuevasNoticias = dato.articles.filter(
+        (noticia) =>
+          !noticias.some((existing) => existing.title === noticia.title)
+      );
+      noticias = noticias.concat(nuevasNoticias);
+      mostrarNoticias();
+    });
+  offset++;
+}
+
+// Evento de carga más noticias
+document.getElementById('mostrar-mas').addEventListener('click', cargarMasNoticias);
+
+// Cargar un mínimo de 20 noticias al cargar la página
+cargarMasNoticias(); // Esto cargará las primeras 10 noticias
+cargarMasNoticias(); // Esto cargará otras 10 noticias en la segunda llamada
+
+  </script>
+  <br>
+  <br>
+  <br>
 
 
-    <footer class="footer">
-      <section class="footer__container container">
-        <nav class="nav nav--footer">
-          <h2 class="footer__title">Curso ciberseguridad</h2>
-  
-          <ul class="nav__link nav__link--footer">
-            <li class="nav__items">
-              <a href="index.html" class="nav__links">Inicio</a>
-            </li>
-            <li class="nav__items">
-              <a href="Curso.html" class="nav__links">Curso</a>
-            </li>
-            <li class="nav__items">
-              <a href="Contacto.html" class="nav__links">Contacto</a>
-            </li>
-            <li class="nav__items">
-              <a href="blog.html" class="nav__links">blog</a>
-            </li>
-          </ul>
-        </nav>
-  
-        <form class="footer__form" action="https://formspree.io/f/xgeqjgob" method="POST">
-          <div class="footer__inputs">
-            <input type="email" placeholder="Email:" class="footer__input" name="_replyto" />
-            <input type="submit" value="Registrate" class="footer__submit" />
-          </div>
-        </form>
-      </section>
-  
-      <section class="footer__copy container">
-        <div class="footer__social">
-          <a href="https://es-la.facebook.com/login/device-based/regular/login/" class="footer__icons"><img
-              src="../images/logos/facebook.svg" class="footer__img" /></a>
-          <a href="https://twitter.com/?lang=es" class="footer__icons">
-            <img src="../images/iconos/twitter.svg"
-              class="footer__img" /></a>
-          <a href="https://www.youtube.com/channel/UClhiamF43q-SBILHOA3Ydlg " class="footer__icons"><img
-              src="../images/iconos/youtube.svg" class="footer__img" /></a>
-          <a href="https://sena.territorio.la/cms/index.php" class="footer__icons"><img
-              src="../images/iconos/sena-colombia-logo.svg" class="footer__img" /></a>
-          <a href="https://www.reddit.com/r/CIBERSECHYDRA__/" class="footer__icons">
-            <img src="../images/logos/reddit.png"
-              class="footer__img" /></a>
-  
-      </section>
-    </footer>
-  
-    <script src="../js/slider.js"></script>
-    <script src="../js/questions.js"></script>
-    <script src="../js/menu.js"></script>
-  
-  
-  </html>
+  <footer class="footer">
+    <section class="footer__container container">
+      <nav class="nav nav--footer">
+        <h2 class="footer__title">Curso ciberseguridad</h2>
+
+        <ul class="nav__link nav__link--footer">
+          <li class="nav__items">
+            <a href="index.html" class="nav__links">Inicio</a>
+          </li>
+          <li class="nav__items">
+            <a href="Curso.html" class="nav__links">Curso</a>
+          </li>
+          <li class="nav__items">
+            <a href="Contacto.html" class="nav__links">Contacto</a>
+          </li>
+          <li class="nav__items">
+            <a href="blog.html" class="nav__links">blog</a>
+          </li>
+        </ul>
+      </nav>
+
+      <form class="footer__form" action="https://formspree.io/f/xgeqjgob" method="POST">
+        <div class="footer__inputs">
+          <input type="email" placeholder="Email:" class="footer__input" name="_replyto" />
+          <input type="submit" value="Registrate" class="footer__submit" />
+        </div>
+      </form>
+    </section>
+
+    <section class="footer__copy container">
+      <div class="footer__social">
+        <a href="https://es-la.facebook.com/login/device-based/regular/login/" class="footer__icons"><img
+            src="../images/logos/facebook.svg" class="footer__img" /></a>
+        <a href="https://twitter.com/?lang=es" class="footer__icons">
+          <img src="../images/iconos/twitter.svg" class="footer__img" /></a>
+        <a href="https://www.youtube.com/channel/UClhiamF43q-SBILHOA3Ydlg " class="footer__icons"><img
+            src="../images/iconos/youtube.svg" class="footer__img" /></a>
+        <a href="https://sena.territorio.la/cms/index.php" class="footer__icons"><img
+            src="../images/iconos/sena-colombia-logo.svg" class="footer__img" /></a>
+        <a href="https://www.reddit.com/r/CIBERSECHYDRA__/" class="footer__icons">
+          <img src="../images/logos/reddit.png" class="footer__img" /></a>
+
+    </section>
+  </footer>
+</body>
+  <script src="../js/slider.js"></script>
+  <script src="../js/questions.js"></script>
+  <script src="../js/menu.js"></script>
+
+
+</html>
