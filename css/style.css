@@ -7,10 +7,11 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  margin: 0 ;
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
@@ -34,33 +35,33 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%),
-    url("../images/empleado.jpg");
+    url("../images/wallpaper/empleado.jpg");
   background-size: cover;
   clip-path: fill-box(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
   z-index: -1;
 }
 
-/* Nav */
+  .nav {
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
-.nav {
-  --padding-container: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
+  .log {
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 50px;  
+  }
 
-.log {
-  width: 100px;
-  height: 68px;
-  margin-top: 25px;
-}
-.nav__title {
-  font-weight: 600;
-  height: 40px;
-  font-size: 24px;
-}
+  .nav__title {
+    font-weight: 600;
+    height: 40px;
+    font-size: 24px;
+  }
 
 .nav__link {
   margin-left: auto;
@@ -69,8 +70,10 @@ body {
   grid-auto-flow: column;
   gap: 1em;
   font-size: 20px;
-
 }
+
+
+
 
 .nav__items {
   list-style: none;
@@ -96,7 +99,7 @@ body {
   display: var(--show, none);
 }
 
-/* Hero container */
+
 
 .hero__container {
   max-width: 700px;
@@ -256,7 +259,7 @@ body {
   width: 30px;
 }
 
-@media (min-width: 400px) and (max-width: 470px) {
+@media (min-width: 411px) and (max-width: 600px) {
   .footer__container {
     flex-direction: column;
     align-items: center;
@@ -283,7 +286,7 @@ body {
   }
 }
 
-@media (max-width: 1200px) {
+@media   (max-width: 1200px) {
   .nav__menu {
     display: block;
   }
@@ -318,7 +321,7 @@ body {
     cursor: pointer;
   }
 
-  @media (max-width: 1200px) {
+  @media (min-width: 411px) and (max-width: 1200px) {
     .nav__menu {
       display: block;
     }
