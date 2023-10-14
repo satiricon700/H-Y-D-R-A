@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  --padding-container: 100px 0;
+  --color-title: #4464a0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0 ;
+  background: linear-gradient(to right, #041a38, #0574bd);
+
+}
+
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn-google {
+    color: white !important;
+    background-color: #ea4335;
+  }
+  
+  .btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
+  }   
+
+
+  .card-img-left {
+    width:45%;
+    background-color: #041a38;
+    padding-top: 25%; 
+  }
+  
+  .card-img-left img {
+    width:60%;
+    height: 40%;
+    margin:0 auto;
+    display: block;
+   
+  }
