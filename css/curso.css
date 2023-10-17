@@ -1,0 +1,70 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+/* Estilos para los cursos */
+.curso-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.curso-box {
+  width: 300px;
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.curso-box img {
+  width: 100%;
+  height: auto;
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+p {
+  text-align: center;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Hover sobre los cursos */
+.curso-box:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s;
+  background-color: #f9f9f9;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .curso-box {
+      width: 90%;
+  }
+}
