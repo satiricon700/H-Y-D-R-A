@@ -1,5 +1,4 @@
 (() => {
-  // packages/alpinejs/src/scheduler.js
   var flushPending = false;
   var flushing = false;
   var queue = [];
@@ -30,7 +29,6 @@
     flushing = false;
   }
 
-  // packages/alpinejs/src/reactivity.js
   var reactive;
   var effect;
   var release;
@@ -85,7 +83,6 @@
     ];
   }
 
-  // packages/alpinejs/src/mutation.js
   var onAttributeAddeds = [];
   var onElRemoveds = [];
   var onElAddeds = [];
@@ -244,7 +241,6 @@
     removedAttributes = null;
   }
 
-  // packages/alpinejs/src/scope.js
   function scope(node) {
     return mergeProxies(closestDataStack(node));
   }
@@ -325,7 +321,6 @@
     return thisProxy;
   }
 
-  // packages/alpinejs/src/interceptor.js
   function initInterceptors(data2) {
     let isObject2 = (val) =>
       typeof val === "object" && !Array.isArray(val) && val !== null;
@@ -423,7 +418,6 @@
     return obj;
   }
 
-  // packages/alpinejs/src/utils/error.js
   function tryCatch(el, expression, callback, ...args) {
     try {
       return callback(...args);

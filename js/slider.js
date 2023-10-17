@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
     buttonBefore.addEventListener('click', () => {
-      changePosition(-1);
+      changePosition(1);
     });
   
     const changePosition = (add) => {
