@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="../css/plantilla.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="course-contai">
+  <div class="sidebar">
+    <div class="course">
+      <h2>HYDRA - CURSO CIBERSEGURIDAD</h2>
+      <br>
+      <p>Bienvenido amigo esta son una lista de temas basicos
+        que veremos en el curso de ciberseguridad de nivel medio</p>
+    </div>
+
+    <div class="topics">
+      <ul>
+        <li class="topic">
+          <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+          <span class="topic-label">Redes</span>
+          <ul class="subtopics">
+            <li class="subtopic">
+              <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+              <span class="subtopic-label"> <a href="curso/concep.html">Conceptos de Subnetting</a></span>
+            </li>
+
+           
+          </ul>
+        </li>
+
+        <li class="topic">
+          <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+          <span class="topic-label">pirateria</span>
+          <ul class="subtopics">
+            <li class="subtopic">
+              <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+              <span class="subtopic-label"> <a href="curso/cifra.html">Ventajas y desventajas</a></span>
+            </li>
+
+
+          </ul>
+        </li>
+
+        <li class="topic">
+          <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+          <span class="topic-label">ingeniera inversa</span>
+          <ul class="subtopics">
+            <li class="subtopic">
+              <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+              <span class="subtopic-label"><a href="curso/sql.html">tecnicas de ingenieria</a></span>
+            </li>
+            <li class="subtopic">
+              <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+              <span class="subtopic-label"><a href="curso/sql.html">Funcionamiento de Ghidra</a></span>
+            </li>
+           
+          </ul>
+        </li>
+
+        <li class="topic">
+          <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+          <span class="topic-label">personalizacion sistemas linux</span>
+          <ul class="subtopics">
+            <li class="subtopic">
+              <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+              <span class="subtopic-label"> <a href="curso/malwaretip.html">manjaro</a></span>
+            </li>
+
+            <li class="subtopic">
+              <div class="folder-icon"> <img src="\H-Y-D-R-A\images\iconos\carpeta.png"></div>
+              <span class="subtopic-label"> <a href="curso/prevemalw.html">ubuntu</a></span>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="subtopic-content">
+</div>
+</div>
+<script>
+  $(document).ready(function () {
+    $(".subtopics").hide();
+    $(".responsive-iframe").show();
+
+    $(".topic-label").click(function () {
+      const subtopics = $(this).next(".subtopics");
+      if (subtopics.is(":hidden")) {
+        $(".subtopics").hide();
+        subtopics.show();
+        $(".subtopic-content").removeClass("subtopic-content-visible").hide();
+        $(".responsive-iframe").show();
+      } else {
+        subtopics.hide();
+        showIframeIfAllClosed();
+      }
+    });
+
+    $(".subtopic-label a").click(function (event) {
+      event.preventDefault();
+      var subtopicURL = $(this).attr("href");
+      $.get(subtopicURL, function (data) {
+        $(".subtopics").hide();
+        $(this).closest(".subtopics").show();
+        $(".subtopic-content").html(data).addClass("subtopic-content-visible").show();
+        $(".responsive-iframe").hide();
+      }.bind(this));
+    });
+
+    function showIframeIfAllClosed() {
+      const subtopics = $(".subtopics");
+      let allClosed = true;
+      subtopics.each(function () {
+        if ($(this).is(":visible")) {
+          allClosed = false;
+          return false;
+        }
+      });
+
+      if (allClosed) {
+        $(".responsive-iframe").show();
+        $(".subtopic-content").removeClass("subtopic-content-visible").hide();
+      }
+    }
+  });
+
+</script>
+<script src="../js/menu.js"></script>
