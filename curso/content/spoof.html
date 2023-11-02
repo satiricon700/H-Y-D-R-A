@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/plantilla.css" />
+  </head>
+  <body>
+    <h1 class="leter">DNS Spoofing: Ataques y Prevención</h1>
+    <br>
+    <br>
+    <h2>¿Qué es el DNS Spoofing?</h2>
+    <p>
+      El DNS Spoofing, o envenenamiento de caché DNS, es una técnica maliciosa
+      utilizada por atacantes para redirigir el tráfico de red al sitio web
+      falso o malicioso en lugar del destino legítimo. Los atacantes logran esto
+      corrompiendo la caché DNS y asociando nombres de dominio con direcciones
+      IP falsas.
+    </p>
+    <img  src="../images/wallpaper/diagramspoof.png" alt=""  style="width: 100%;"><br> 
+
+    <h2>Funcionamiento del DNS Spoofing</h2>
+    <p>El proceso de DNS Spoofing implica los siguientes pasos:</p>
+    <ol>
+      <li>
+        Un atacante intercepta las solicitudes DNS realizadas por una víctima.
+      </li>
+      <li>
+        El atacante responde a la solicitud de la víctima con una dirección IP
+        falsa, generalmente llevando a un sitio web malicioso.
+      </li>
+      <li>
+        La víctima es redirigida al sitio malicioso sin saberlo, y sus datos
+        pueden quedar comprometidos.
+      </li>
+    </ol>
+
+    <h2>Escenario de Ataque</h2>
+    <p>
+      Supongamos que una empresa llamada "E-Corp" es víctima de un ataque
+      de DNS Spoofing. Los empleados de E-Corp intentan acceder a su
+      servicio de banca en línea, pero son redirigidos a una página falsa
+      controlada por un atacante. Como resultado, los datos confidenciales de
+      los empleados quedan comprometidos, y la reputación de la empresa está en
+      peligro.
+    </p>
+    <br>
+    <h2>Cómo el Atacante Realizó el DNS Spoofing</h2>
+    <p>
+      El atacante pudo haber realizado el DNS Spoofing de la siguiente manera:
+    </p>
+    <ol>
+      <li>Escogió un sitio web legítimo como "banco.com" como objetivo.</li>
+      <li>Monitoreó el tráfico DNS de los empleados de EjemploCorp para conocer las consultas DNS legítimas.</li>
+      <li>Creó una réplica del sitio web del banco en su propio servidor.</li>
+      <li>Utilizó herramientas como "Ettercap" o "Wireshark" para interceptar las solicitudes DNS a "banco.com".</li>
+      <li>Respondió a esas solicitudes con direcciones IP falsas que apuntaban a su servidor malicioso en lugar del sitio legítimo del banco.</li>
+      <li>Las víctimas, sin saberlo, fueron redirigidas al sitio malicioso donde el atacante recopiló información confidencial.</li>
+    </ol>
+    
+    <p>
+      El atacante logró engañar a las víctimas y comprometer su seguridad mediante la manipulación de las respuestas DNS.
+    </p>
+    <br>
+    <br>
+    <h2>Medidas de Seguridad y Prevención</h2>
+    <p>
+      Para prevenir el DNS Spoofing, las organizaciones deben implementar varias
+      medidas de seguridad, que incluyen:
+    </p>
+    <ul>
+      <li>
+        Utilizar DNSSEC: DNS Security Extensions (DNSSEC) es una tecnología que
+        protege las consultas DNS de manipulaciones al verificar la autenticidad
+        de las respuestas.
+      </li>
+      <img  src="../images/wallpaper/dnssec.png" alt=""  style="width: 100%;"><br> 
+
+      <li>
+        Firewall: Configurar un firewall para bloquear tráfico malicioso y no
+        autorizado.
+      </li>
+      <li>
+        Actualización de Software: Mantener todos los sistemas y software
+        actualizados para corregir vulnerabilidades conocidas.
+      </li>
+      <li>
+        Monitoreo de Tráfico DNS: Supervisar el tráfico DNS para detectar
+        anomalías y posibles ataques.
+      </li>
+    </ul>
+
+    <h2>Comandos de Línea</h2>
+    <p>
+      Para verificar y solucionar problemas de DNS Spoofing en un sistema, se
+      pueden utilizar comandos de línea como "nslookup" o "dig". Estas
+      herramientas te permiten consultar servidores DNS y verificar si las
+      respuestas son legítimas.
+    </p>
+    <pre>
+    <code>
+      nslookup example.com
+      dig @8.8.8.8 example.com
+    </code>
+  </pre>
+
+    <p>
+      Con estas medidas y herramientas, las organizaciones pueden protegerse
+      contra ataques de DNS Spoofing y mantener la seguridad de su
+      infraestructura de red.
+    </p>
+  </body>
+</html>

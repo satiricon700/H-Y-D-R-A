@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/plantilla.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Prevenir SQL Injection - Guía Práctica</title>
+      </head>
+      <body>
+        <h1 class="leter">
+          ¿Qué es el SQL Injection y cómo afecta tu página de comercio en línea?
+        </h1>
+
+        <p>
+          Imagina que tienes una página web de comercio en línea donde las
+          personas compran productos y comparten información personal, como
+          nombres de usuario y contraseñas. Sin embargo, tu página ha sido
+          víctima de ataques informáticos y es importante entender uno de los
+          ataques más comunes: el SQL Injection.
+        </p>
+        <br />
+        <br />
+        <img
+          src="../images/wallpaper/diagram.png"
+          style="margin:0 auto;"/>
+        <br />
+        <br />
+        <h2>SQL Injection: Ataque a tu Base de Datos</h2>
+        <p>
+          El SQL Injection es un tipo de ataque cibernético que los hackers
+          utilizan para manipular tu página web y acceder a tu base de datos.
+          ¿Cómo lo hacen? Aquí tienes una explicación sencilla:
+        </p>
+
+        <p>
+          En tu página de comercio, cuando los usuarios ingresan información en
+          los formularios, como su nombre de usuario y contraseña, esos datos se
+          almacenan en una base de datos. Esta base de datos utiliza un lenguaje
+          llamado SQL (Structured Query Language) para gestionar los datos.
+        </p>
+
+        <p>
+          Si tu página web no está bien protegida, un hacker puede intentar
+          introducir comandos SQL maliciosos en los campos de entrada. Esto es
+          como si alguien intentara hacer trampas en un juego al cambiar las
+          reglas.
+        </p>
+           <br>
+           <br>
+        <h2>Ejemplo</h2>
+        <p>
+          Imagina que un usuario malicioso quiere hacer daño a tu página. En
+          lugar de ingresar su nombre de usuario normal, escribe algo como esto:
+          `juan'; DROP TABLE Usuarios; --`. Esto parece inofensivo, pero si la
+          aplicación no está protegida, puede ser devastador.
+        </p>
+
+        <p>
+          El comando `DROP TABLE Usuarios` es un comando SQL que significa
+          "borrar la tabla de usuarios". Si la página web no valida y protege
+          adecuadamente los datos de entrada, un hacker podría lograr que la
+          base de datos elimine toda la información de usuarios.
+        </p>
+  <br>
+  <br>
+        <h2>¿Cómo Proteger tu Página de Comercio en Línea?</h2>
+        <p>
+          La seguridad es fundamental para proteger tu página de comercio en
+          línea y los datos de tus clientes. Aquí hay algunas medidas clave que
+          puedes tomar:
+        </p>
+
+        <h3>1. Validación de Datos</h3>
+        <p>
+          Asegúrate de que todos los datos ingresados por los usuarios se
+          validen y limpien cuidadosamente. Esto significa permitir solo datos
+          válidos y prevenir comandos maliciosos.
+        </p>
+
+        <h3>2. Consultas Preparadas</h3>
+        <p>
+          En el código de tu página, utiliza consultas preparadas. Estas
+          consultas separan los datos de los comandos SQL, lo que hace más
+          difícil para los hackers aprovecharse de tus formularios.
+        </p>
+
+        <p>
+          Con estas precauciones, puedes proteger tu página de comercio en línea
+          y prevenir ataques de SQL Injection. La seguridad en línea es un tema
+          crucial, y es fundamental estar al tanto de las amenazas para mantener
+          tus datos y los de tus clientes seguros.
+        </p>
+        <h1 class="leter">Situación de Juan - SQL Injection</h1>
+
+        <p>
+          <img
+            src="../images/wallpaper/juan.jpeg"
+            style="float: left; margin: 10px 20px 10px 0; max-width: 150px"
+          />
+          Asi es ,  otra vez nuestro personaje juan, un desarrollador de aplicaciones web
+          trabaja en una pequeña empresa de comercio en línea. Un día, Juan
+          descubre una vulnerabilidad de SQL Injection en la aplicación que él
+          mismo ha desarrollado.
+        </p>
+
+        <h2>El Día de Descubrimiento</h2>
+        <p>
+          Un usuario llamado Carlos ha estado utilizando la aplicación de
+          comercio electrónico de la empresa. Carlos notó que, al realizar
+          ciertas acciones en la aplicación, obtuvo acceso a información que no
+          debería ver, incluyendo datos de otros usuarios y detalles financieros
+          confidenciales.
+        </p>
+
+        <p>
+          Carlos se lo informó a Juan, quien de inmediato investigó el problema.
+          Después de algunas pruebas y análisis, Juan se dio cuenta de que la
+          aplicación era vulnerable al SQL Injection.
+        </p>
+
+        <h2>El SQL Injection Detectado</h2>
+        <p>
+          Juan descubrió que la aplicación no estaba validando ni escapando
+          adecuadamente los datos de entrada del usuario. Esto permitía que un
+          atacante ingresara datos manipulados en los campos de búsqueda y otros
+          formularios, lo que llevaba a la ejecución de consultas SQL maliciosas
+          en la base de datos de la aplicación.
+        </p>
+
+        <p>
+          Las consultas SQL maliciosas podían revelar información sensible y
+          permitir a un atacante potencialmente modificar registros o incluso
+          eliminar datos de la base de datos. La seguridad de la aplicación
+          estaba en grave peligro.
+        </p>
+
+        <h2>La Respuesta de Juan</h2>
+        <p>
+          Después de identificar la vulnerabilidad, Juan se dio cuenta de la
+          importancia de tomar medidas para prevenir futuros ataques de SQL
+          Injection. A continuación, tomó las siguientes acciones:
+        </p>
+
+        <h3>1. Validación Rigurosa</h3>
+        <p>
+          Juan implementó una validación rigurosa de los datos de entrada de la
+          aplicación. Comenzó a validar y escapar adecuadamente todos los datos
+          ingresados por los usuarios para evitar la ejecución de consultas SQL
+          maliciosas.
+        </p>
+
+        <h3>2. Consultas Preparadas</h3>
+        <p>
+          Juan modificó el código de la aplicación para utilizar consultas
+          preparadas, lo que separó los datos de las consultas SQL y proporcionó
+          una capa adicional de seguridad.
+        </p>
+
+        <h3>3. Lista Blanca</h3>
+        <p>
+          Implementó una lista blanca que definió los caracteres y patrones de
+          entrada permitidos. Cualquier entrada que no cumpliera con estos
+          criterios se filtraba y se consideraba no válida.
+        </p>
+
+        <h3>4. Monitoreo Continuo</h3>
+        <p>
+          Juan configuró un sistema de monitoreo continuo para detectar y
+          responder a intentos de SQL Injection y otros ataques. Esto le
+          permitió tomar medidas proactivas para proteger la aplicación.
+        </p>
+
+        <p>
+          La historia de Juan destaca la importancia de la prevención del SQL
+          Injection y cómo un descubrimiento inesperado puede llevar a la
+          implementación de prácticas de seguridad sólidas.
+        </p>
+        <h1>Prevenir SQL Injection - Guía Práctica</h1>
+
+        <p>
+          Prevenir el SQL Injection es esencial para proteger tus aplicaciones y
+          bases de datos. A continuación, te ofrecemos una guía práctica sobre
+          cómo prevenir este tipo de ataque paso a paso.
+        </p>
+
+        <h2>Paso 1: Validación de Datos de Entrada</h2>
+        <p>
+          La validación rigurosa de datos de entrada es la primera línea de
+          defensa contra el SQL Injection. Asegúrate de que los datos ingresados
+          por los usuarios cumplan con los criterios esperados. Aquí tienes un
+          ejemplo en PHP:
+        </p>
+
+        <pre>
+            <code>
+                $nombre = $_POST["nombre"];
+                $nombre_validado = mysqli_real_escape_string($conexion, $nombre);
+            </code>
+        </pre>
+
+        <h2>Paso 2: Consultas Preparadas</h2>
+        <p>
+          Utilizar consultas preparadas es una práctica segura. Separa los datos
+          de la consulta SQL. Aquí tienes un ejemplo en PHP con MySQLi:
+        </p>
+
+        <pre>
+            <code>
+                $stmt = $conexion->prepare
+                ("SELECT * FROM usuarios WHERE usuario = ?");
+                $stmt->bind_param("s", $nombre_validado);
+                $stmt->execute();
+            </code>
+        </pre>
+
+        <h2>Paso 3: Evitar Comentarios SQL</h2>
+        <p>
+          Evita el uso de comentarios SQL en tus consultas, ya que los atacantes
+          pueden aprovecharlos. Por ejemplo, evita esto:
+        </p>
+
+        <pre>
+            <code>
+                $consulta = "SELECT * FROM usuarios WHERE usuario = 'juan'; --'";
+            </code>
+        </pre>
+
+        <h2>Paso 4: Implementar una Lista Blanca</h2>
+        <p>
+          Implementa una lista blanca que defina los caracteres y patrones de
+          entrada permitidos. Filtra cualquier entrada que no cumpla con estos
+          criterios. Aquí tienes un ejemplo en PHP:
+        </p>
+
+        <pre>
+            <code>
+                if (preg_match("/^[A-Za-z0-9]+$/", $nombre_validado)) {
+                    // Datos válidos
+                } else {
+                    // Datos no válidos
+                }
+            </code>
+        </pre>
+
+        <h2>Paso 5: Monitoreo Continuo</h2>
+        <p>
+          Configura un sistema de monitoreo continuo para detectar y responder a
+          intentos de SQL Injection. Registra y revisa los registros de
+          seguridad regularmente para identificar actividades sospechosas.
+        </p>
+
+        <h2>Paso 6: Capacitación del Personal</h2>
+        <p>
+          Educa a tu equipo de desarrollo y administración sobre las amenazas de
+          seguridad y la importancia de seguir buenas prácticas. Realiza
+          ejercicios de capacitación y pruebas de seguridad periódicas.
+        </p>
+
+        <p>
+          Al seguir estos pasos prácticos, puedes fortalecer la seguridad de tus
+          aplicaciones y prevenir el SQL Injection de manera efectiva.
+        </p>
+      </body>
+    </html>
+  </body>
+</html>

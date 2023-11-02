@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/plantilla.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="leter">Hardening en Sistemas Windows</h1><br>
+    <img
+      src="../images/wallpaper/secure.png"
+      style="float: left; margin: 10px 20px 10px 0; max-width: 150px"
+    />
+    <br>
+    <h2 class="leter">¿Qué es Hardening?</h2>
+    <p>
+      El hardening es el proceso de asegurar un sistema operativo Windows para
+      reducir su superficie de ataque y protegerlo contra amenazas y
+      vulnerabilidades. Aquí te mostramos cómo hacerlo:
+    </p>
+    <br /><br /><br /><br />
+    <h2 class="leter">Actualizaciones y Parches</h2>
+    <p>
+      La base del hardening es mantener tu sistema actualizado. Asegúrate de
+      habilitar las actualizaciones automáticas de Windows para recibir los
+      últimos parches de seguridad.
+    </p>
+
+    <h2>2. Cortafuegos (Firewall)</h2>
+    <p>
+      Habilita el Firewall de Windows o utiliza una solución de firewall de
+      terceros. Configura reglas para bloquear el tráfico no deseado y permitir
+      solo el necesario.
+    </p>
+
+    <h2>3. Cuentas de Usuario</h2>
+    <p>
+      Utiliza cuentas de usuario estándar en lugar de cuentas de administrador
+      para las tareas diarias. Limita los privilegios de administrador a cuentas
+      específicas.
+    </p>
+
+    <h2>4. Antivirus y Anti-Malware</h2>
+    <p>
+      Instalar un software antivirus y anti-malware puede ser una práctica
+      importante para mantener la seguridad de tu sistema. Si optas por una
+      solución de antivirus de pago, a menudo obtendrás características
+      adicionales y un nivel más alto de protección. Sin embargo, si eliges una
+      versión gratuita, asegúrate de configurarla y usarla correctamente.
+      Escanea regularmente tu sistema en busca de amenazas y mantén las
+      definiciones actualizadas.
+    </p>
+
+    <h2>5. Políticas de Contraseña</h2>
+    <p>
+      Establece políticas de contraseña fuertes que requieran combinaciones de
+      letras, números y caracteres especiales. Cambia las contraseñas de manera
+      regular.
+    </p>
+
+    <h2>6. Deshabilitar Servicios Innecesarios</h2>
+    <p>
+      Revisa la lista de servicios de Windows y deshabilita aquellos que no sean
+      necesarios para tu entorno. Esto reduce la superficie de ataque.
+    </p>
+
+    <h2>7. Escritorio Remoto</h2>
+    <p>
+      Si no necesitas acceso remoto, deshabilita el escritorio remoto. Si lo
+      necesitas, configura conexiones seguras y restricciones de acceso.
+    </p>
+
+    <h2>8. Auditoría y Registros</h2>
+    <p>
+      Configura la auditoría de eventos para registrar actividades sospechosas.
+      Monitorea y revisa los registros de seguridad regularmente.
+    </p>
+
+    <h2>Escenarios de Hardening</h2>
+    <ul>
+      <li>
+        Hardening para un servidor web: Si tienes un servidor web en Windows, es
+        crucial protegerlo de ataques como inyección SQL y ataques de fuerza
+        bruta. Utiliza firewalls, reglas de IIS y software de seguridad web.
+      </li>
+      <li>
+        Hardening para una estación de trabajo: Las estaciones de trabajo
+        requieren medidas de seguridad para prevenir malware y ataques locales.
+        Implementa políticas de grupo, antivirus y cortafuegos personales.
+      </li>
+    </ul>
+
+    <h2>Programas de Hardening</h2>
+    <ul>
+      <li>
+        Antivirus: Utiliza un programa antivirus confiable y mantén las
+        definiciones actualizadas.
+      </li>
+      <li>
+        Software de cortafuegos: Considera soluciones de firewall de terceros
+        para una protección adicional.
+      </li>
+      <li>
+        BitLocker: Emplea BitLocker para cifrar discos y proteger tus datos.
+      </li>
+    </ul>
+
+    <h2>Servicios de Hardening</h2>
+    <ul>
+      <li>
+        Windows Defender: Activa Windows Defender para protección contra malware
+        y spyware.
+      </li>
+      <li>
+        Firewall de Windows: Utiliza el Firewall de Windows para bloquear
+        puertos no utilizados y controlar las reglas de entrada y salida.
+      </li>
+      <li>
+        Actualizaciones automáticas: Habilita las actualizaciones automáticas
+        para mantener tu sistema al día con los últimos parches de seguridad.
+      </li>
+    </ul>
+
+    <h2>Reglas de Entrada y Salida</h2>
+    <p>
+      Las reglas de entrada y salida del firewall son esenciales en el
+      hardening. Las reglas de entrada controlan qué tráfico se permite o
+      bloquea en tu sistema, mientras que las reglas de salida determinan qué
+      tráfico puede salir. Por ejemplo:
+    </p>
+    <ul>
+      <li>
+        Regla de entrada: Permite el tráfico de entrada solo en el puerto 80
+        para el servidor web.
+      </li>
+      <li>
+        Regla de salida: Bloquea todo el tráfico saliente en el puerto 445 para
+        evitar ataques de propagación de malware.
+      </li>
+    </ul>
+
+    <h2>9. Protección de Datos</h2>
+    <p>
+      Utiliza cifrado para proteger tus datos. BitLocker es una herramienta de
+      cifrado de disco incorporada en Windows que puedes aprovechar.
+    </p>
+
+    <h2>10. Evaluación Continua</h2>
+    <p>
+      El hardening es un proceso continuo. Mantén tus sistemas actualizados,
+      revisa regularmente tus políticas y procedimientos de seguridad, y ajusta
+      tu estrategia según sea necesario.
+    </p>
+
+    <p>
+      Recuerda que el hardening es esencial para proteger tus sistemas y datos
+      contra amenazas cibernéticas. No escatimes en seguridad, y mantén una
+      postura defensiva sólida en todo momento.
+    </p>
+  </body>
+</html>

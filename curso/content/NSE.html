@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/plantilla.css" />
+  </head>
+  <body>
+    <h1 class="leter">Scripts NSE de Nmap - Automatización y Personalización de Escaneos</h1>
+
+    <p>
+      Los scripts NSE (Nmap Scripting Engine) son una característica poderosa de
+      Nmap que permite la automatización y personalización de escaneos de red.
+      En esta página, te explicaremos en detalle qué son los scripts NSE, cómo
+      utilizarlos y cuándo son útiles, además de proporcionar ejemplos y
+      comandos de uso.
+    </p>
+<br>
+    <h2 class="leter">¿Qué son los Scripts NSE?</h2>
+    <p>
+      Los scripts NSE son pequeños programas escritos en lenguaje Lua que se
+      ejecutan dentro de Nmap. Estos scripts proporcionan funcionalidades
+      adicionales a las exploraciones de red, como detección de
+      vulnerabilidades, recopilación de información y más. Los scripts NSE están
+      diseñados para facilitar la personalización de los escaneos y automatizar
+      tareas comunes de seguridad de red.
+    </p>
+<br>
+    <h2 class="leter">Cómo Utilizar los Scripts NSE</h2>
+    <p>Para utilizar los scripts NSE en Nmap, sigue estos pasos:</p>
+
+    <ol>
+      <li>
+        Selecciona un objetivo para tu escaneo. Puedes especificar una dirección
+        IP, un rango de IP o un nombre de host.
+      </li>
+
+      <li>
+        Abre una terminal o línea de comandos y utiliza el siguiente formato de
+        comando para ejecutar un escaneo con scripts NSE:
+      </li>
+    </ol>
+
+    <pre><code>nmap -sC -sV [objetivo]</code></pre>
+
+    <p>Donde:</p>
+
+    <ul>
+      <li><code>-sC</code>: Habilita la ejecución de scripts NSE.</li>
+      <li>
+        <code>-sV</code>: Detecta versiones de servicios en puertos abiertos.
+      </li>
+      <li>
+        <code>[objetivo]</code>: Especifica la dirección IP o nombre de host del
+        objetivo.
+      </li>
+    </ul>
+
+    <h2>Ejemplos de Uso</h2>
+    <p>A continuación, algunos ejemplos de comandos Nmap con scripts NSE:</p>
+
+    <pre><code>nmap -sC -sV 192.168.1.1</code></pre>
+    <p>
+      Este comando ejecuta un escaneo en la dirección IP 192.168.1.1 con la
+      detección de versiones de servicios y la ejecución de scripts NSE.
+    </p>
+
+    <pre><code>nmap -sC -p 80,443 192.168.1.1</code></pre>
+    <p>
+      Este comando escanea los puertos 80 y 443 en la dirección IP 192.168.1.1
+      con la ejecución de scripts NSE.
+    </p>
+
+    <h2>Cuándo Utilizar los Scripts NSE</h2>
+    <p>Los scripts NSE son útiles en diversas situaciones, como:</p>
+
+    <ul>
+      <li>Descubrimiento de servicios y puertos abiertos.</li>
+      <li>Detección de vulnerabilidades en servicios.</li>
+      <li>Enumeración de información de sistemas y servicios.</li>
+      <li>Automatización de tareas de seguridad.</li>
+    </ul>
+
+    <p>
+      Los scripts NSE son flexibles y se pueden adaptar a tus necesidades
+      específicas en la exploración y auditoría de redes.
+    </p>
+
+    <h2>Ejemplos de Scripts NSE</h2>
+    <p>Estos son algunos ejemplos de scripts NSE disponibles en Nmap:</p>
+
+    <ul>
+      <li>
+        <strong>http-title.nse:</strong> Muestra el título de la página web en
+        puertos HTTP.
+      </li>
+      <li>
+        <strong>ssl-enum-ciphers.nse:</strong> Enumera las suites de cifrado
+        SSL/TLS disponibles en un servidor.
+      </li>
+      <li>
+        <strong>ftp-anon.nse:</strong> Comprueba si un servidor FTP permite
+        conexiones anónimas.
+      </li>
+      <li>
+        <strong>vuln.nse:</strong> Detecta vulnerabilidades conocidas en
+        servicios y aplicaciones.
+      </li>
+    </ul>
+
+    <p>
+      Estos son solo algunos ejemplos, y hay muchos más scripts disponibles para
+      diversas tareas de exploración y auditoría de red.
+    </p>
+  </body>
+</html>

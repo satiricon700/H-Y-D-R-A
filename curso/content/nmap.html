@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/plantilla.css">
+</head>
+
+<body>
+
+    <h1 class="leter">Introducción a Nmap - Exploración de Redes y Escaneo de Puertos</h1>
+     <br>
+     
+    <p>Nmap es una poderosa herramienta de código abierto que se utiliza para explorar redes y escanear puertos en
+        sistemas informáticos. Es una herramienta esencial para administradores de sistemas y profesionales de seguridad
+        cibernética. En esta página, te proporcionaremos una introducción a Nmap, cómo descargarlo y algunos conceptos
+        básicos de uso.</p>
+<br>
+    <h2>¿Qué es Nmap?</h2>
+    <p>Nmap, que significa "Network Mapper", es una herramienta de exploración de redes y escaneo de puertos. Permite a
+        los usuarios descubrir dispositivos en una red y determinar qué servicios y puertos están abiertos en esos
+        dispositivos. Esto es esencial para evaluar la seguridad de una red y sus sistemas.</p>
+<br>
+    <h2>Descarga e Instalación</h2>
+    <p>Nmap está disponible para diversas plataformas, incluyendo Windows, Linux y macOS. Puedes descargarlo desde el
+        sitio oficial de Nmap  <a href="https://nmap.org/download.html">(https://nmap.org/download.html)</a>. Una vez descargado, sigue las instrucciones de
+        instalación para tu sistema operativo.</p>
+<br>
+    <h2>Conceptos Básicos de Uso</h2>
+    <p>Para comenzar a usar Nmap, aquí hay algunos conceptos básicos:</p>
+
+    <ul>
+        <li>
+            <strong>Escanear una IP o un rango de IP:</strong>
+            Utiliza el comando
+            <pre><code>nmap [IP o rango de IP]</code></pre> para realizar un escaneo en una dirección IP específica o en
+            un rango de direcciones IP.
+        </li>
+
+        <li>
+            <strong>Escanear un puerto o un rango de puertos:</strong>
+            Utiliza el comando
+            <pre><code>nmap -p [puerto o rango de puertos] [IP]</code></pre> para escanear un puerto o un rango de
+            puertos en una dirección IP específica.
+        </li>
+
+        <li>
+            <strong>Escaneo de red completo:</strong>
+            Puedes utilizar el comando
+            <pre><code>nmap -F [IP]</code></pre> para realizar un escaneo rápido de los 1000 puertos más comunes en una
+            dirección IP.
+        </li>
+    </ul>
+
+
+    <img src="../images/wallpaper/sitelogo-nmap.svg" alt="Logo de Nmap">
+
+    <h2>Ejemplos de Uso</h2>
+    <p>A continuación, algunos ejemplos de comandos Nmap:</p>
+
+    <pre><code>nmap 192.168.1.1</code></pre>
+    <p>Este comando escanea la dirección IP 192.168.1.1 para descubrir qué puertos están abiertos.</p>
+
+    <pre><code>nmap -p 80,443 192.168.1.1</code></pre>
+    <p>Este comando escanea la dirección IP 192.168.1.1 para determinar si los puertos 80 y 443 están abiertos.</p>
+
+    <p>Con Nmap, puedes realizar exploraciones avanzadas de redes y obtener información valiosa sobre la seguridad de
+        tus sistemas. ¡Explora y aprende!</p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/plantilla.css" />
+  </head>
+
+  <body>
+    <title>Ataque SQL UNION - Explicación y Solución</title>
+
+    <h1 class="leter">Ataque SQL UNION - Explicación y Solución</h1>
+
+    <p>
+      El ataque SQL UNION es una amenaza común en el mundo de la seguridad
+      cibernética que puede afectar gravemente a los negocios web. En esta
+      página, te explicaremos qué es, cómo funciona y cómo puede impactar tu
+      negocio. También veremos un ejemplo con el personaje Carlos, quien se
+      enfrenta a este ataque y encuentra una solución.
+    </p>
+    <br />
+    <br />
+    <h2>¿Qué es el Ataque SQL UNION?</h2>
+    <p>
+      El ataque SQL UNION es una técnica utilizada por
+      <strong>ciberdelincuentes</strong> para acceder y robar datos de una base
+      de datos a través de vulnerabilidades en una aplicación web. Funciona al
+      inyectar consultas SQL maliciosas que utilizan la cláusula
+      <strong> "UNION"</strong> para combinar resultados de múltiples tablas de
+      la base de datos, incluyendo tablas que no deberían ser accesibles
+      públicamente.
+    </p>
+    <br />
+    <br />
+    <p>
+      El SQL UNION es peligroso porque permite a un atacante recuperar datos
+      confidenciales, como contraseñas, información de tarjetas de crédito y
+      otros datos sensibles almacenados en la base de datos del negocio web.
+    </p>
+    <br />
+    <h2>Cómo Funciona el SQL UNION</h2>
+    <p>
+      El SQL UNION permite a los atacantes combinar resultados de diferentes
+      tablas en la base de datos. Veamos un ejemplo de código SQL:
+    </p>
+    <br />
+    <pre>
+        <code>
+            SELECT nombre, apellido FROM usuarios WHERE id = 123
+            UNION
+            SELECT número_tarjeta, fecha_vencimiento FROM tarjetas_de_crédito
+             WHERE id_usuario = 123
+        </code>
+    </pre>
+    <br />
+    <p>
+      En este ejemplo, un atacante podría utilizar una consulta similar para
+      acceder a la información de tarjetas de crédito de un usuario sin
+      autorización.
+    </p>
+    <br />
+    <h2>Impacto en el Negocio Web</h2>
+    <p>
+      Un ataque exitoso de SQL UNION puede tener graves consecuencias para un
+      negocio en línea. Puede resultar en la exposición de datos confidenciales
+      de clientes, dañar la reputación de la empresa y llevar a sanciones
+      legales. Además, los clientes pueden perder la confianza en el sitio web y
+      dejar de usarlo.
+    </p>
+    <br />
+    <h2>Ejemplo con Carlos</h2>
+    <p>
+      <img
+        class="ghidra-image"
+        src="../images/wallpaper/noexist.jpg"
+        style="float: left; margin: 10px 20px 10px 0; max-width: 150px"
+      />
+      Imagina a Carlos, un propietario de un negocio en línea. Un día, Carlos
+      descubre que su sitio web ha sido víctima de un ataque SQL UNION. Los
+      atacantes han logrado acceder a la base de datos del negocio y han
+      obtenido información de clientes, incluyendo números de tarjetas de
+      crédito.
+    </p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h3>La Solución de Carlos</h3>
+    <p>
+      Carlos se da cuenta de la gravedad de la situación y toma medidas
+      inmediatas para solucionar el problema. Aquí hay un resumen de lo que
+      hizo:
+    </p>
+    <br />
+    <h4>1. Auditoría de Seguridad</h4>
+    <p>
+      Carlos realiza una auditoría de seguridad exhaustiva en su sitio web para
+      identificar la vulnerabilidad que permitió el ataque SQL UNION. Utiliza
+      herramientas de seguridad y escaneo de vulnerabilidades para encontrar y
+      solucionar cualquier debilidad.
+    </p>
+    <br />
+    <h4>2. Validación y Escape de Datos</h4>
+    <p>
+      Carlos modifica su aplicación para validar y escapar adecuadamente todos
+      los datos de entrada de los usuarios. Asegura que ninguna consulta SQL
+      maliciosa pueda ejecutarse en su base de datos.
+    </p>
+    <br />
+    <h4>3. Reforzamiento de la Seguridad</h4>
+    <p>
+      Carlos refuerza la seguridad de su aplicación web utilizando cortafuegos
+      de aplicaciones web (WAF) y reglas de seguridad adicionales. Establece un
+      monitoreo continuo para detectar posibles ataques y alertas de seguridad.
+    </p>
+    <br />
+    <p>
+      La historia de Carlos destaca la importancia de la seguridad en línea y la
+      necesidad de tomar medidas proactivas para proteger un negocio web contra
+      amenazas como el ataque SQL UNION.
+    </p>
+        <br>
+        <br>
+
+    <h1>Programas y Protocolos para Prevenir Ataques SQL UNION</h1>
+
+    <ul>
+      <li>
+        <strong>Firewalls de Aplicaciones Web (WAF):</strong> Los WAFs son
+        herramientas que protegen tu aplicación web al filtrar y bloquear
+        solicitudes maliciosas antes de que lleguen al servidor. Pueden detectar
+        y prevenir ataques SQL UNION.
+      </li>
+
+      <li>
+        <strong>Validación de Datos de Entrada:</strong> Implementar una
+        estricta validación y saneamiento de los datos de entrada en tu
+        aplicación web puede evitar que los atacantes inyecten consultas SQL
+        maliciosas.
+      </li>
+
+      <li>
+        <strong>Escapado de Datos:</strong> Escapar o neutralizar los datos
+        antes de utilizarlos en consultas SQL es esencial para prevenir el SQL
+        UNION. Esto asegura que los datos ingresados por los usuarios no sean
+        tratados como comandos SQL.
+      </li>
+
+      <li>
+        <strong>Consultas Preparadas:</strong> Utilizar consultas preparadas en
+        el código de tu aplicación separa los datos de los comandos SQL, lo que
+        dificulta a los atacantes aprovecharse de tus formularios.
+      </li>
+
+      <li>
+        <strong>Monitorización Continua:</strong> Configura sistemas de
+        monitorización continuos para detectar y responder a intentos de
+        ataques, incluyendo SQL UNION. El monitoreo te permite tomar medidas
+        proactivas para proteger tu aplicación.
+      </li>
+
+      <li>
+        <strong>Escaneo de Vulnerabilidades:</strong> Utiliza herramientas de
+        escaneo de vulnerabilidades para identificar posibles debilidades en tu
+        aplicación web y corregirlas antes de que los atacantes las exploten.
+      </li>
+
+      <li>
+        <strong>Implementación de Listas Blancas:</strong> Define una lista
+        blanca de caracteres y patrones de entrada permitidos. Filtra cualquier
+        entrada que no cumpla con estos criterios.
+      </li>
+    </ul>
+
+ 
+  </body>
+</html>

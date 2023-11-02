@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/plantilla.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="leter">Introducción al Firewall</h1>
+    <img
+      src="../images/wallpaper/server-ami.svg"
+      style="float: left; margin: 10px 20px 10px 0; max-width: 150px"
+    />
+    <p>
+      Un firewall es una herramienta de seguridad que actúa como una barrera
+      entre una red privada y el mundo exterior. Su función principal es
+      controlar y filtrar el tráfico de red con el fin de proteger los sistemas
+      y datos de amenazas. Los firewalls pueden ser implementados a nivel de
+      red, host o aplicación, dependiendo de las necesidades de seguridad.
+    </p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h2>Para qué Sirve un Firewall</h2>
+    <p>Un firewall sirve para:</p>
+    <ul>
+      <li>Proteger contra ataques maliciosos como intrusiones y malware.</li>
+      <li>Controlar el tráfico de red y aplicar políticas de seguridad.</li>
+      <li>
+        Prevenir el acceso no autorizado a sistemas y datos confidenciales.
+      </li>
+      <li>
+        Registrar y supervisar la actividad de red para detectar amenazas.
+      </li>
+    </ul>
+    <br />
+    <br />
+    <h2>Reglas de Firewall de Entrada y Salida</h2>
+    <p>
+      Las reglas de firewall determinan qué tráfico se permite y qué tráfico se
+      bloquea. A continuación, se presentan ejemplos de reglas de entrada y
+      salida en diferentes escenarios:
+    </p>
+    <br />
+    <br />
+    <h3>Regla de Entrada para Permitir Tráfico Web</h3>
+    <pre><code>
+                    Regla: Permitir el tráfico TCP en el puerto 80 (HTTP).
+                </code></pre>
+
+    <h3>Regla de Salida para Bloquear Tráfico SSH</h3>
+    <pre><code>
+                    Regla: Bloquear el tráfico TCP en el puerto 22 (SSH).
+                </code></pre>
+
+    <h3>Regla de Entrada para Permitir Tráfico DNS</h3>
+    <pre><code>
+                    Regla: Permitir el tráfico UDP en el puerto 53 (DNS).
+                </code></pre>
+    <br />
+    <br />
+    <h2>Ejemplos Prácticos</h2>
+    <p>
+      Para ilustrar la importancia de un firewall, consideremos un escenario de
+      red empresarial. Supongamos que deseamos permitir que los empleados
+      naveguen por Internet, pero queremos bloquear el acceso a sitios web de
+      redes sociales durante el horario laboral.
+    </p>
+    <p>
+      Regla de Entrada: Permitir el tráfico HTTP/HTTPS, excepto para dominios de
+      redes sociales.
+    </p>
+    <pre><code>
+                    Regla: Permitir el tráfico HTTP/HTTPS hacia todos los destinos, excepto dominios de redes sociales (por ejemplo, facebook.com, twitter.com).
+                </code></pre>
+    <p>
+      Esta regla permite la navegación web estándar, pero bloquea el acceso a
+      las redes sociales, lo que ayuda a mantener la productividad en el entorno
+      de trabajo.
+    </p>
+
+    <br />
+    <h1 class="leter">
+      Funcionamiento de Reglas de Firewall de Entrada y Salida
+    </h1>
+    <br />
+    <br />
+    <h2>Reglas de Entrada (Inbound Rules)</h2>
+    <p>
+      Las reglas de entrada determinan qué tráfico se permite entrar a la red
+      protegida y a qué sistemas se permite llegar. Por lo general, se utilizan
+      para permitir o bloquear el acceso a servicios y recursos internos.
+    </p>
+
+    <h3>Ejemplo de Regla de Entrada</h3>
+    <p>
+      Si deseas permitir que los usuarios accedan a un servidor web interno,
+      crearás una regla de entrada que permita el tráfico TCP en el puerto 80
+      (HTTP). La regla podría verse así:
+    </p>
+    <pre>
+                Permitir tráfico TCP desde cualquier dirección IP en el puerto 80 hacia el servidor web interno.
+            </pre
+    >
+
+    <h2>Reglas de Salida (Outbound Rules)</h2>
+    <p>
+      Las reglas de salida determinan qué tráfico se permite salir de la red
+      protegida. Pueden utilizarse para controlar qué servicios o aplicaciones
+      pueden acceder a Internet o a otros recursos externos.
+    </p>
+
+    <h3>Ejemplo de Regla de Salida</h3>
+    <p>
+      Para evitar que los usuarios de la red interna accedan a sitios web de
+      redes sociales, crearás una regla de salida que bloquee el tráfico hacia
+      esos sitios. La regla podría verse así:
+    </p>
+    <pre>
+       Bloquear tráfico HTTP/HTTPS hacia los dominios de redes sociales (e.g., facebook.com, twitter.com).
+         </pre
+    >
+    <br />
+    <br />
+    <h2>Tipos de Firewall</h2>
+    <p>
+      Existen varios tipos de firewall, cada uno con sus características y
+      aplicaciones específicas:
+    </p>
+    <ul>
+      <li>
+        Firewall de Packet Filtering: Filtra el tráfico en función de reglas de
+        dirección IP, puertos y protocolos.
+      </li>
+      <li>
+        Firewall de Proxy: Actúa como intermediario entre la red interna y la
+        externa, controlando las solicitudes y respuestas.
+      </li>
+      <li>
+        Firewall de Estado (Stateful Firewall): Realiza un seguimiento del
+        estado de las conexiones y permite o bloquea el tráfico en función del
+        estado de la sesión.
+      </li>
+      <li>
+        Firewall de Aplicación (Application Firewall): Inspecciona el tráfico a
+        nivel de aplicación, bloqueando amenazas específicas de aplicaciones.
+      </li>
+    </ul>
+    <br />
+    <br />
+    <h2>Cómo Crear una Regla de Firewall</h2>
+    <p>
+      La creación de reglas de firewall varía según el software o hardware que
+      utilices, pero el proceso general es similar. Aquí te explico cómo crear
+      una regla de entrada y una de salida en un firewall típico:
+    </p>
+
+    <h3>Crear una Regla de Entrada</h3>
+    <p>1. Accede a la interfaz de administración de tu firewall.</p>
+    <p>2. Navega a la sección de reglas de entrada o políticas de seguridad.</p>
+    <p>3. Haz clic en "Agregar regla" o un botón similar.</p>
+    <p>4. Configura la regla especificando los siguientes parámetros:</p>
+    <ul>
+      <li>- Tipo de tráfico (por ejemplo, TCP o UDP).</li>
+      <li>- Puerto de origen y destino (si es necesario).</li>
+      <li>
+        - Dirección IP de origen y destino (puedes usar direcciones específicas
+        o "cualquier").
+      </li>
+      <li>- Acción (permitir o bloquear).</li>
+    </ul>
+    <p>5. Guarda la regla y asegúrate de que esté activa.</p>
+
+    <h3>Crear una Regla de Salida</h3>
+    <p>1. Accede a la interfaz de administración de tu firewall.</p>
+    <p>
+      2. Navega a la sección de reglas de salida o políticas de seguridad de
+      salida.
+    </p>
+    <p>3. Haz clic en "Agregar regla" o un botón similar.</p>
+    <p>4. Configura la regla especificando los siguientes parámetros:</p>
+    <ul>
+      <li>- Tipo de tráfico (por ejemplo, HTTP/HTTPS).</li>
+      <li>
+        - Destinos a los que se aplica la regla (por ejemplo, sitios web de
+        redes sociales).
+      </li>
+      <li>- Acción (permitir o bloquear).</li>
+    </ul>
+    <p>5. Guarda la regla y asegúrate de que esté activa.</p>
+  </body>
+</html>

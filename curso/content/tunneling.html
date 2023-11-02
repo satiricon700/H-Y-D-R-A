@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/plantilla.css" />
+  </head>
+  <body>
+    <h1>DNS Tunneling: Conceptos y Prevención</h1>
+    <br />
+    
+    <h2>¿Qué es DNS Tunneling?</h2>
+    <p>
+      El DNS tunneling es una técnica utilizada por ciberdelincuentes para
+      ocultar el tráfico malicioso en solicitudes DNS legítimas. Esto permite
+      eludir las restricciones de seguridad y comunicarse con servidores remotos
+      de comando y control (C&C) de manera encubierta.
+    </p>
+
+    <img
+      src="../images/wallpaper/Ecorp.jpg"
+      style="float: left; margin: 10px 20px 10px 0; max-width: 150px"
+    />
+    <br />
+    <h2>Escenario de Ataque</h2>
+
+    <p>
+      Imaginemos una situación en la que una empresa, E-Corp, es víctima de un
+      ataque de DNS tunneling. El atacante logra infiltrarse en la red
+      corporativa y utiliza el DNS tunneling para comunicarse con servidores C&C
+      externos y exfiltrar datos confidenciales.
+    </p>
+    <br />
+    <br />
+    <h2>Cómo el Atacante Realizó el DNS Tunneling</h2>
+    <p>
+      El atacante pudo haber llevado a cabo el ataque de DNS tunneling de la
+      siguiente manera:
+    </p>
+    <ol>
+      <li>
+        Obtuvo acceso a la red corporativa de EjemploCorp mediante técnicas de
+        intrusión.
+      </li>
+      <li>
+        Configuró un servidor DNS malicioso dentro de la red de la empresa.
+      </li>
+      <li>
+        Creó solicitudes DNS maliciosas que contenían datos encriptados y las
+        envió al servidor DNS malicioso.
+      </li>
+      <li>
+        El servidor DNS malicioso interpretó las solicitudes y desencriptó los
+        datos, permitiendo la comunicación con los servidores C&C.
+      </li>
+      <li>
+        El atacante pudo exfiltrar datos y controlar las operaciones maliciosas
+        a través de esta comunicación encubierta.
+      </li>
+    </ol>
+    <img
+      src="../images/wallpaper/tunneling.png "
+      alt="Cómo el Atacante Realizó el DNS Tunneling"
+      style="width: 100%"
+    />
+
+  
+
+    <h2>Recomendaciones</h2>
+    <p>
+      Aquí hay algunos comandos que pueden ayudar en la detección y prevención
+      de ataques de DNS tunneling:
+    </p>
+    <pre>
+    <code>
+# Comando para monitorear el tráfico DNS
+tcpdump -i eth0 port 53
+
+# Herramientas de detección de amenazas (estos no son comandos=)
+Bro IDS
+Snort
+Suricata
+
+# Actualización de sistemas
+sudo apt update && sudo apt upgrade
+    </code>
+  </pre>
+
+    <h1>Detección de Ataques de DNS Tunneling</h1>
+    <p>
+      El DNS tunneling implica el abuso del protocolo DNS subyacente. En lugar
+      de utilizar solicitudes y respuestas de DNS para realizar búsquedas
+      legítimas de direcciones IP, el malware lo utiliza para implementar un
+      canal de comando y control con su controlador.
+    </p>
+
+    <p>
+      La flexibilidad de DNS lo convierte en una buena opción para la
+      exfiltración de datos; sin embargo, tiene sus límites. Algunos indicadores
+      de DNS tunneling en una red pueden incluir:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Solicitudes de Dominios Inusuales:</strong> El malware de DNS
+        tunneling codifica datos dentro de un nombre de dominio solicitado (como
+        DATOS_AQUÍ.baddomain.com). La inspección de los nombres de dominio
+        solicitados en las solicitudes de DNS puede permitir a una organización
+        diferenciar el tráfico legítimo de los intentos de DNS tunneling.
+      </li>
+      <li>
+        <strong>Solicitudes de Dominios Inusuales:</strong> El DNS tunneling
+        solo funciona si el atacante es dueño del dominio de destino para que
+        las solicitudes de DNS vayan a su servidor DNS. Si una organización
+        experimenta un aumento repentino en las solicitudes de un dominio
+        inusual, puede indicar DNS tunneling, especialmente si ese dominio se
+        creó recientemente.
+      </li>
+      <li>
+        <strong>Alto Volumen de Tráfico DNS:</strong> El nombre de dominio en
+        una solicitud de DNS tiene un tamaño máximo (253 caracteres). Esto
+        significa que un atacante probablemente necesitará una gran cantidad de
+        solicitudes de DNS maliciosas para realizar la exfiltración de datos o
+        implementar un protocolo de comando y control altamente interactivo. El
+        aumento resultante en el tráfico de DNS puede ser un indicador de DNS
+        tunneling.
+      </li>
+    </ul>
+
+    <p>
+      Todos estos factores pueden ser benignos por separado. Sin embargo, si una
+      organización experimenta varias o todas estas anomalías, puede ser una
+      indicación de que el malware de DNS tunneling está presente y activo en la
+      red.
+    </p>
+
+    <h2>Cómo Protegerse contra el DNS Tunneling</h2>
+    <p>
+      Protegerse contra el DNS tunneling requiere un sistema avanzado de
+      prevención de amenazas en la red capaz de detectar y bloquear esta
+      tentativa de exfiltración de datos. Dicho sistema debe realizar inspección
+      del tráfico de red y tener acceso a una inteligencia de amenazas sólida
+      para respaldar la identificación del tráfico dirigido hacia dominios
+      maliciosos y contenido malicioso que pueda estar incrustado en el tráfico
+      de DNS.
+    </p>
+
+    <p>
+      Los firewalls de próxima generación (NGFW) de Check Point proporcionan
+      capacidades líderes en la detección de amenazas y seguridad de la red.
+      Para obtener más información sobre las soluciones de Check Point y cómo
+      pueden mejorar la seguridad de la red de su organización, contáctenos.
+      También puede solicitar una demostración para ver los NGFW de Check Point
+      en acción.
+    </p>
+  </body>
+</html>
