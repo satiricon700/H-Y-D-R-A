@@ -1,94 +1,46 @@
-const formulario = document.querySelector('form');
-const inputs = document.querySelectorAll('#formulario input');
-
-const expresiones = {
-  usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, números, guion y guion bajo
-  password: /^.{4,12}$/, // 4 a 12 caracteres.
-  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-};
-
-const campos = {
-  usuario: false,
-  password: false,
-  correo: false,
-};
-
-const validarFormulario = (e) => {
-  switch (e.target.name) {
-    case 'nombre':
-      validarCampo(expresiones.usuario, e.target, 'usuario');
-      break;
-
-    case 'contrasena':
-      validarCampo(expresiones.password, e.target, 'password');
-      break;
-
-    case 'email':
-      validarCampo(expresiones.correo, e.target, 'correo');
-      verificarCorreoDisponible(e.target.value);
-      break;
-  }
-};
-
-const validarCampo = (expresion, input, campo) => {
-  if (expresion.test(input.value)) {
-    document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-    document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-    document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
-    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-    campos[campo] = true;
-  } else {
-    document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-    document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-    document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
-    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-    campos[campo] = false;
-  }
-};
-
-const verificarCorreoDisponible = (email) => {
-  fetch('validar-registro.php', {
-    method: 'POST',
-    body: new URLSearchParams({ email }),
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  })
-    .then((response) => response.text())
-    .then((data) => {
-      if (data === 'Correo en uso') {
-        alert('Este correo electrónico ya está en uso. Por favor, elige otro.');
-        document.getElementById('floatingInputEmail').value = ''; // Limpia el campo de correo
+function validarFormulario() {
+    var nombre = document.forms[0].nombre.value;
+    var email = document.forms[0].email.value;
+    var contrasena = document.forms[0].contrasena.value;
+    var errores = [];
+  
+    // Validación de nombre: Debe contener entre 3 y 12 caracteres
+    if (nombre.length < 3 || nombre.length > 12) {
+      window.alert("El nombre debe tener entre 3 y 12 caracteres.");
+    }
+    if (!/^[a-zA-Z0-9 ]{3,12}$/.test(nombre)) {
+      window.alert("El nombre debe tener entre 3 y 12 caracteres y no debe contener caracteres especiales.");
+    }
+  
+    // Validación de correo electrónico: Debe tener entre 10 y 30 caracteres y ser una dirección de correo válida
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      window.alert("El correo electrónico no es válido.");
+    }
+  
+    // Validación de contraseña: Debe tener entre 4 y 18 caracteres
+    if (!/^[a-zA-Z0-9]{4,18}$/.test(contrasena)) {
+      window.alert("La contraseña debe tener entre 4 y 18 caracteres.");
+    }
+  
+  
+    // Validación de correo electrónico: Debe tener entre 10 y 30 caracteres
+    if (email.length < 10 || email.length > 30) {
+      window.alert("El correo electrónico debe tener entre 10 y 30 caracteres.");
+    }
+  
+    // Validación de contraseña: Debe tener entre 4 y 18 caracteres
+    if (contrasena.length < 4 || contrasena.length > 18) {
+      window.alert("La contraseña debe tener entre 4 y 18 caracteres.");
+    }
+  
+    if (errores.length > 0) {
+      var mensajeError = "Errores: \n";
+      for (var i = 0; i < errores.length; i++) {
+        mensajeError += "- " + errores[i] + "\n";
       }
-    })
-    .catch((error) => {
-      console.error('Error al verificar el correo:', error);
-    });
-};
-
-inputs.forEach((input) => {
-  input.addEventListener('keyup', validarFormulario);
-  input.addEventListener('blur', validarFormulario);
-});
-
-formulario.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const terminos = document.getElementById('terminos');
-  if (campos.usuario && campos.password && campos.correo && terminos.checked) {
-    formulario.reset();
-
-    document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-    setTimeout(() => {
-      document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-    }, 5000);
-
-    document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-      icono.classList.remove('formulario__grupo-correcto');
-    });
-  } else {
-    document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+      alert(mensajeError);
+      return false;
+    }
+  
+    return true;
   }
-});
