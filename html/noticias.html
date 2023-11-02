@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <title>noticias</title>
+</head>
+
+
   <style>
     
     
@@ -154,9 +157,8 @@
     let url = `https://newsapi.org/v2/top-headlines?country=${pais}&apiKey=${key}`;
     let mostrar_noticias = document.getElementById('noticias');
 let noticias = [];
-let offset = 1; // Iniciar desde la página 1
+let offset = 1; 
 
-// Función para mostrar las noticias en el DOM
 function mostrarNoticias() {
   mostrar_noticias.innerHTML = '';
   noticias.map(function (noticia) {
@@ -173,7 +175,6 @@ function mostrarNoticias() {
   });
 }
 
-// Función para cargar más noticias
 function cargarMasNoticias() {
   fetch(`${url}&pageSize=10&page=${offset}`)
     .then((resp) => resp.json())
@@ -188,12 +189,10 @@ function cargarMasNoticias() {
   offset++;
 }
 
-// Evento de carga más noticias
 document.getElementById('mostrar-mas').addEventListener('click', cargarMasNoticias);
 
-// Cargar un mínimo de 20 noticias al cargar la página
-cargarMasNoticias(); // Esto cargará las primeras 10 noticias
-cargarMasNoticias(); // Esto cargará otras 10 noticias en la segunda llamada
+cargarMasNoticias(); 
+cargarMasNoticias(); 
 
   </script>
   <br>
@@ -211,23 +210,18 @@ cargarMasNoticias(); // Esto cargará otras 10 noticias en la segunda llamada
             <a href="index.html" class="nav__links">Inicio</a>
           </li>
           <li class="nav__items">
-            <a href="Curso.html" class="nav__links">Curso</a>
+            <a href="registro.html" class="nav__links">Curso</a>
           </li>
           <li class="nav__items">
             <a href="Contacto.html" class="nav__links">Contacto</a>
           </li>
           <li class="nav__items">
-            <a href="blog.html" class="nav__links">blog</a>
+            <a href="noticias.html" class="nav__links">blog</a>
           </li>
         </ul>
       </nav>
 
-      <form class="footer__form" action="https://formspree.io/f/xgeqjgob" method="POST">
-        <div class="footer__inputs">
-          <input type="email" placeholder="Email:" class="footer__input" name="_replyto" />
-          <input type="submit" value="Registrate" class="footer__submit" />
-        </div>
-      </form>
+     
     </section>
 
     <section class="footer__copy container">
@@ -246,9 +240,6 @@ cargarMasNoticias(); // Esto cargará otras 10 noticias en la segunda llamada
     </section>
   </footer>
 </body>
-  <script src="../js/slider.js"></script>
   <script src="../js/questions.js"></script>
   <script src="../js/menu.js"></script>
-
-
 </html>

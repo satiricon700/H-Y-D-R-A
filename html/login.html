@@ -7,63 +7,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HYDRA | curso de ciberseguridad</title>
   <link rel="shortcut icon" href="../images/iconos/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="../css/all.min.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style login.css">
   <meta name="theme-color" content="#2091F9" />
   <meta name="title" content="ciberseguridad " />
 </head>
 
 <body>
 
-  <form action="../php/login.php" method="POST">
+
+  <form action="../php/login.php" method="POST" onsubmit="return validarFormulario();">
     <div class="container">
       <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-          <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-            <div class="card-img-left d-none d-md-flex">
-             <img   src="../images/logos/Logo Hydra-02.png" alt="logo">
-            </div>
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-              <div class="card border-0 shadow rounded-3 my-5">
-                <div class="card-body p-4 p-sm-5">
-                  <h5 class="card-title text-center mb-5 fw-light fs-5">Iniciar sesion</h5>
-                    <div class="form-floating mb-3">
-                      <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com"
-                        autocomplete="username">
-                      <label for="floatingInput">Correo electronico</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                      <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                        autocomplete="current-password">
-                      <label for="floatingPassword">Contraseña</label>
-                    </div>
+        <div class="custom-container">
+          <div class="custom-card flex-row my-5 custom-border shadow custom-rounded-3 custom-overflow-hidden">
+              <img  class="imagen" src="../images/logos/Logo Hydra-02.png" alt="logo" />
+          
+            <div class="custom-col-sm-9 custom-col-md-7 custom-col-lg-5 mx-auto">
+              <div class="custom-card custom-border shadow custom-rounded-3 my-5">
+                <div class="custom-card-body p-4 p-sm-5">
+                  <h5 class="custom-card-title text-center mb-5 custom-fw-light custom-fs-5">INICIAR SESION</h5>
+                  <div class="custom-form-floating mb-3">
+                    <label for="custom-floatingInput">correo</label>
+                    <input type="email" class="custom-form-control" id="custom-floatingInput" name="email" placeholder="nombre" />
+                  </div>
+                  <div class="custom-form-floating mb-3">
+                    <label for="custom-floatingPassword">contraseña</label>
 
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                      <label class="form-check-label" for="rememberPasswordCheck">
-                        Recordar contraseña
-                      </label>
-                    </div>
-                    <div class="d-grid">
-                      <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" >
-                        <label type ="submit">Iniciar sesion</label>
-                      </button>
-                      <a class="d-block text-center mt-2 small" href="registro.html">no has creado tu cuenta?</a>
-      
-                   
-                    </div>
-                    <hr class="my-4">
-                    <div class="d-grid mb-2">
-                      <button class="btn btn-google btn-login text-uppercase fw-bold" type="button">
-                        <i class="fab fa-google me-2"></i> Sign in with Google
-                      </button>
-                    </div>
-                    <div class="d-grid">
-                      <button class="btn btn-facebook btn-login text-uppercase fw-bold" type="button">
-                        <i class="fab fa-facebook-f me-2"></i> Sign in with Facebook
-                      </button>
-                    </div>
+                    <input type="password" class="custom-form-control" id="custom-floatingPassword" name="contrasena" placeholder="contraseña" autocomplete="current-password" />
+                  </div>
+                  <div class="custom-form-check mb-3">
+                    <input class="custom-form-check-input" type="checkbox" value="" id="custom-rememberPasswordCheck" />
+                    <label class="custom-form-check-label" for="custom-rememberPasswordCheck">
+                      Recordar contraseña
+                    </label>
+                  </div>
+                  <br>
+                  
+                  <div class="custom-d-grid">
+                    <button class="custom-btn custom-btn-primary custom-btn-login text-uppercase custom-fw-bold" type="submit">
+                      Iniciar sesión
+                    </button>
+                    <a class="custom-d-block text-center mt-2 custom-small" href="registro.html">¿No tienes una cuenta?</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -72,7 +57,8 @@
       </div>
     </div>
   </form>
-
+  
 </body>
-<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="/js/validaciones.js"></script>
+
 </html>
