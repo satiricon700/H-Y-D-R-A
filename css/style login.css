@@ -36,3 +36,28 @@ body {
     display: block;
    
   }
+
+  
+  @media screen and (min-width: 412px) and (max-width: 890px) {
+    .col-lg-10.col {
+      width: 100%; /* Ocupar todo el ancho disponible */
+    }
+  
+    .card-img-left {
+      width: 100%; /* Ocupar todo el ancho disponible */
+    }
+  
+    .card-img-left img {
+      width: 100%; /* Ocupar todo el ancho disponible */
+      height: auto; /* Ajustar la altura automáticamente */
+    }
+  
+    .card-body {
+      padding: 1rem; /* Agregar relleno al cuerpo del formulario */
+    }
+  
+    .form-floating input {
+      font-size: 14px; /* Ajustar el tamaño de fuente de los campos de entrada */
+    }
+  }
+  
