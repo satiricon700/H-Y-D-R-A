@@ -1,11 +1,11 @@
 <?php
-// Datos de conexión a la base de datos
+// datos establecidos
 $servername = 'localhost';
 $username = 'root';
 $password = '';
-$dbname = 'login';
+$dbname = 'hydra';
 
-// Crear la conexión
+// Creamos la conexion
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

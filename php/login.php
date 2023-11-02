@@ -1,23 +1,31 @@
 <?php
-
 require 'db_connection.php';
-// Verificar si se ha enviado el formulario de registro
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener los datos del formulario
-    $nombre = $_POST['nombre'];
-    $edad = $_POST['edad'];
     $email = $_POST['email'];
-    $contraseña = $_POST['contraseña'];
+    $contraseña = $_POST['contrasena'];
 
-    // Realizar cualquier validación adicional que necesites
+    // Verificar si el correo y la contraseña coinciden en la base de datos
+    $sql = "SELECT * FROM usuarios WHERE email = :email";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Hashear la contraseña
-    $hashContraseña = password_hash($contraseña, PASSWORD_DEFAULT);
+    if ($row) {
+        $hashContraseña = $row['contraseña'];
 
-    // Guardar los datos en la base de datos (aquí asumimos que ya has configurado la conexión a la base de datos)
-
-    // Redireccionar al formulario de inicio de sesión
-    header('Location: http://localhost/H-Y-D-R-A/Curso.html');
-    exit();
+        if (!empty($contraseña) && password_verify($contraseña, $hashContraseña)) {
+            // Inicio de sesión exitoso
+            header('Location: http://localhost/H-Y-D-R-A/curso/Curso.html');
+            exit();
+        } else {
+            // Contraseña incorrecta
+            header('Location: http://localhost/H-Y-D-R-A/login.html');
+            exit();
+        }
+    } else {
+        echo "Usuario no encontrado. Por favor, ingresa tus credenciales.";
+    }
 }
 ?>
